@@ -12,8 +12,10 @@ body{background:var(--bg);color:var(--tx);font-family:var(--f);-webkit-font-smoo
 
 .shell{display:flex;height:100vh;overflow:hidden}
 
+/* LEFT PANEL */
 .left{width:380px;min-width:320px;display:flex;flex-direction:column;height:100vh;border-right:1px solid var(--bd);background:var(--bg);position:relative;z-index:2;flex-shrink:0}
 
+/* RIGHT PANEL */
 .right{flex:1;display:flex;flex-direction:column;height:100vh;background:var(--bg);overflow:hidden;min-width:0}
 .r-empty{flex:1;display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;background:radial-gradient(circle at 50% 40%,rgba(74,144,217,.03) 0%,transparent 70%)}
 .r-empty-inner{max-width:280px}
@@ -22,6 +24,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--f);-webkit-font-smoo
 .r-empty-sub{font-size:12px;color:var(--txd);line-height:1.5}
 .r-empty-sub .g{color:var(--gn);font-weight:600}
 
+/* Action bar — STICKY at top of right panel */
 .r-action{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--bd);padding:12px 24px;flex-shrink:0}
 .r-action-btns{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
 .ab{padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;font-family:var(--f);text-decoration:none;cursor:pointer;border:none;transition:all .12s;display:inline-flex;align-items:center;gap:4px}
@@ -37,15 +40,21 @@ body{background:var(--bg);color:var(--tx);font-family:var(--f);-webkit-font-smoo
 .r-scroll::-webkit-scrollbar{width:3px}
 .r-scroll::-webkit-scrollbar-thumb{background:var(--bdl);border-radius:3px}
 
+/* MOBILE */
 @media(max-width:767px){
   .shell{flex-direction:column}
   .left{width:100%;max-width:100%;min-width:0;border-right:none}
   .right{display:none!important}
   .mob-ov-el{display:block!important}
 }
-@media(min-width:768px){.mob-ov-el{display:none!important}}
-@media(min-width:768px) and (max-width:1024px){.left{width:340px;min-width:300px}}
+@media(min-width:768px){
+  .mob-ov-el{display:none!important}
+}
+@media(min-width:768px) and (max-width:1024px){
+  .left{width:340px;min-width:300px}
+}
 
+/* === TOPBAR === */
 .top{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 6px;background:linear-gradient(180deg,rgba(74,144,217,.04) 0%,var(--bg) 100%);flex-shrink:0}
 .logo{font-size:16px;font-weight:700;letter-spacing:-.03em}.logo span{color:var(--bl)}
 .tright{display:flex;align-items:center;gap:10px}
@@ -56,12 +65,14 @@ body{background:var(--bg);color:var(--tx);font-family:var(--f);-webkit-font-smoo
 .av-i{padding:8px 12px;border-radius:6px;font-size:12px;color:var(--tx2);cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .12s}
 .av-i:hover{background:var(--hov);color:var(--tx)}
 
+/* View toggle */
 .vtog{display:flex;gap:0;padding:4px 16px 6px;flex-shrink:0}
 .vtab{flex:1;padding:6px 0;text-align:center;font-size:11px;font-weight:600;border:1px solid var(--bdl);color:var(--txd);background:transparent;cursor:pointer;font-family:var(--f);transition:all .15s}
 .vtab:first-child{border-radius:7px 0 0 7px;border-right:none}
 .vtab:last-child{border-radius:0 7px 7px 0}
 .vtab.on{background:var(--bld);border-color:var(--bl);color:var(--bl)}
 
+/* Status + Progress */
 .status{padding:2px 16px 2px;font-size:12px;color:var(--tx2);line-height:1.4;flex-shrink:0}
 .status strong{color:var(--tx);font-weight:600}
 .status .g{color:var(--gn);font-weight:600}
@@ -75,11 +86,13 @@ body{background:var(--bg);color:var(--tx);font-family:var(--f);-webkit-font-smoo
 .rep-stats{padding:2px 16px 4px;font-size:10px;color:var(--txd);flex-shrink:0}
 .rep-stats span{color:var(--tx2);font-weight:500}
 
+/* Filters */
 .filters{display:flex;gap:4px;padding:2px 16px 6px;overflow-x:auto;flex-shrink:0;-ms-overflow-style:none;scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
 .fc{padding:4px 9px;border-radius:14px;font-size:10px;font-weight:600;border:1px solid var(--bdl);color:var(--txd);background:transparent;cursor:pointer;font-family:var(--f);white-space:nowrap;transition:all .15s}
 .fc.on{background:var(--bld);border-color:var(--bl);color:var(--bl)}
 
+/* LIST */
 .list{flex:1;overflow-y:auto;padding:0 8px 90px;display:flex;flex-direction:column;gap:2px;min-height:0}
 .list::-webkit-scrollbar{width:2px}
 .list::-webkit-scrollbar-thumb{background:var(--bdl);border-radius:2px}
@@ -98,6 +111,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--f);-webkit-font-smoo
 .row.unseen::after{content:"";position:absolute;top:3px;right:3px;width:6px;height:6px;border-radius:50%;background:var(--bl);box-shadow:0 0 4px rgba(74,144,217,.5)}
 @keyframes ri{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
+/* Score ring list */
 .sr{position:relative;width:32px;height:32px;flex-shrink:0}
 .sr svg{width:32px;height:32px;transform:rotate(-90deg)}
 .sr .trk{fill:none;stroke:var(--bd);stroke-width:4}
@@ -111,11 +125,13 @@ body{background:var(--bg);color:var(--tx);font-family:var(--f);-webkit-font-smoo
 .ri-h{font-size:10px;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
 
 .ri-r{display:flex;flex-direction:column;align-items:flex-end;gap:1px;flex-shrink:0}
+/* Combined badge with action state */
 .cbadge{padding:2px 5px;border-radius:3px;font-size:7px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;line-height:1.3;text-align:right}
 .cbadge.pn{background:var(--gng);color:var(--gn)}.cbadge.pv{background:var(--ylg);color:var(--yl)}.cbadge.mo{background:var(--blg);color:var(--bl)}
 .cbadge .act-line{display:block;font-size:7px;opacity:.7}
 .ri-ts{font-size:8px;color:var(--txd);font-family:var(--m)}
 
+/* ARD BAR */
 .cmd{position:absolute;bottom:0;left:0;right:0;z-index:20;background:var(--bg);padding:0 12px}
 .cmd-chips{display:none;gap:5px;padding:5px 0;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
 .cmd-chips::-webkit-scrollbar{display:none}
@@ -128,141 +144,733 @@ body{background:var(--bg);color:var(--tx);font-family:var(--f);-webkit-font-smoo
 .cmd-go{width:34px;height:34px;border-radius:8px;background:var(--bl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cmd-go svg{width:13px;height:13px}
 
+/* MOBILE OVERLAY */
 .mob-ov-el{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:40;overflow-y:auto;transform:translateY(100%);transition:transform .3s cubic-bezier(.16,1,.3,1);padding-bottom:20px}
 .mob-ov-el.open{transform:translateY(0)}
 .mob-back{position:sticky;top:0;padding:12px 16px;background:var(--bg);border-bottom:1px solid var(--bd);cursor:pointer;font-size:13px;font-weight:600;color:var(--bl);z-index:5}
 .mob-c{padding:0 16px}
 
+/* ====== BRIEF STYLES ====== */
+.b-wrap{max-width:640px}
+
+/* Brief header */
+.bh{padding:14px 0 10px;display:flex;gap:12px;align-items:flex-start}
+.b-sr{position:relative;width:48px;height:48px;flex-shrink:0;cursor:pointer}
+.b-sr svg{width:48px;height:48px;transform:rotate(-90deg)}
+.b-sr .trk{fill:none;stroke:var(--bd);stroke-width:4.5}
+.b-sr .fl{fill:none;stroke-width:4.5;stroke-linecap:round;stroke-dasharray:120;stroke-dashoffset:120;transition:stroke-dashoffset 1s ease-out .15s}
+.b-sr.gn .fl{stroke:var(--gn)}.b-sr.yl .fl{stroke:var(--yl)}.b-sr.rd .fl{stroke:var(--rd)}
+.b-sr .sv{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--m);font-weight:700;font-size:14px}
+.b-sr.gn .sv{color:var(--gn)}.b-sr.yl .sv{color:var(--yl)}.b-sr.rd .sv{color:var(--rd)}
+
+.b-i{flex:1;min-width:0}
+.b-co{font-size:16px;font-weight:800;letter-spacing:-.02em}
+.b-ts{font-size:9px;color:var(--txd);font-family:var(--m);margin-top:2px}
+.b-meta{display:flex;gap:6px;align-items:center;margin-top:4px;flex-wrap:wrap}
+.b-money{margin-top:5px;font-family:var(--m);font-size:13px;font-weight:600;color:var(--gn)}
+.b-mb{font-size:9px;color:var(--txd);font-family:var(--f)}
+.b-sn{margin-top:5px;font-size:11px;color:var(--tx2);line-height:1.45}
+
+/* Score detail */
+.sd{display:none;padding:8px 10px;background:var(--s2);border:1px solid var(--bd);border-radius:8px;font-size:10px;margin-bottom:6px}
+.sd.open{display:block}
+.sdr{display:flex;justify-content:space-between;padding:2px 0}.sdl{color:var(--tx2)}.sdv{font-family:var(--m);font-weight:600}
+.sdv.gn{color:var(--gn)}.sdv.yl{color:var(--yl)}.sdv.rd{color:var(--rd)}
+.sdd{border-top:1px solid var(--bd);margin:3px 0}
+.sdh{font-size:8px;color:var(--txd);text-align:center;cursor:pointer;padding:3px 0}
+
+/* Email card */
+.bec{background:var(--s2);border:1px solid var(--bd);border-radius:10px;overflow:hidden}
+.bes{padding:8px 12px;background:var(--s3);border-bottom:1px solid var(--bd);font-size:11px;font-weight:600}.bes span{color:var(--txd);font-weight:400}
+.beb{padding:10px 12px;font-size:11px;line-height:1.5;color:var(--tx2);white-space:pre-wrap}
+
+/* Sections */
+.bs{border-top:1px solid var(--bd);padding:10px 0}
+.bst{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd);margin-bottom:5px;cursor:pointer;display:flex;align-items:center;gap:5px}.bst:hover{color:var(--tx2)}
+.bsb{font-size:11px;line-height:1.5;color:var(--tx2)}
+
+/* Triggers */
+.bt{padding:4px 0}.bt+.bt{border-top:1px solid var(--bd);padding-top:5px}
+.btn-t{font-size:11px;font-weight:600;color:var(--tx)}
+.btt{display:inline-block;padding:1px 4px;border-radius:3px;font-size:8px;font-weight:700;font-family:var(--m);margin-left:3px}
+.btt.t1{background:var(--gng);color:var(--gn)}.btt.t2{background:var(--ylg);color:var(--yl)}
+.btd{font-size:8px;color:var(--txd);font-family:var(--m);margin-left:3px}
+.bte{font-size:10px;color:var(--txd);margin-top:2px;line-height:1.4}
+
+/* Watch outs */
+.bw{padding:4px 0;font-size:10px;color:var(--tx2);display:flex;gap:6px;line-height:1.4}
+.bw+.bw{border-top:1px solid var(--bd);padding-top:4px}
+.bwn{color:var(--yl);font-family:var(--m);font-weight:600;font-size:10px;width:14px;flex-shrink:0}
+
+/* Next step */
+.bns{margin-top:4px;padding:12px;background:var(--s2);border:1px solid var(--bd);border-radius:10px}
+.bnsl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bl)}
+.bnst{margin-top:2px;font-size:12px;font-weight:600;line-height:1.3}
+
+/* Email edit mode */
+.b-email-edit{width:100%;min-height:120px;padding:10px 12px;background:var(--s1);border:1px solid var(--bl);border-radius:8px;color:var(--tx);font-family:var(--f);font-size:11px;line-height:1.5;resize:vertical;outline:none;margin-top:6px}
+.b-send-row{display:flex;gap:6px;margin-top:6px;align-items:center}
+.b-send-btn{padding:7px 16px;border-radius:8px;background:var(--gn);color:#050505;font-size:11px;font-weight:700;font-family:var(--f);border:none;cursor:pointer;transition:all .12s}
+.b-send-btn:hover{background:#2BC48A}
+.b-send-cancel{padding:7px 12px;border-radius:8px;background:transparent;border:1px solid var(--bdl);color:var(--tx2);font-size:11px;font-weight:600;font-family:var(--f);cursor:pointer}
+.b-sent-confirm{padding:10px;background:var(--gnd);border:1px solid rgba(52,211,153,.2);border-radius:8px;text-align:center;color:var(--gn);font-size:12px;font-weight:600;margin-top:6px;animation:fadeIn .3s ease-out}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.bals{font-size:10px;color:var(--txd);margin-top:4px}
+
+/* MANAGER */
+.mgr-scroll{flex:1;overflow-y:auto;padding:12px 16px 90px}
+.mgr-scroll::-webkit-scrollbar{width:2px}
+.mgr-scroll::-webkit-scrollbar-thumb{background:var(--bdl);border-radius:2px}
+
+.mgr-funnel{padding:14px;background:var(--s1);border:1px solid var(--bd);border-radius:10px;margin-bottom:12px}
+.mgr-ft{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd);margin-bottom:10px}
+.mgr-fr{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:12px}
+.mgr-fr+.mgr-fr{border-top:1px solid var(--bd);padding-top:6px}
+.mgr-fl{flex:1;color:var(--tx2)}.mgr-fv{font-family:var(--m);font-weight:600;color:var(--tx)}
+.mgr-fd{font-size:10px;color:var(--gn);font-weight:500;margin-left:4px}
+.mgr-fa{color:var(--txd);font-size:10px;text-align:center;padding:2px 0}
+
+.mgr-sec{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--txd);margin:12px 0 6px}
+.mgr-rep{display:flex;align-items:center;gap:10px;padding:10px;background:var(--s1);border:1px solid var(--bd);border-radius:8px;margin-bottom:4px;cursor:pointer;transition:all .12s}
+.mgr-rep:hover{background:var(--hov);border-color:var(--bdl)}
+.mgr-av{width:30px;height:30px;border-radius:50%;background:var(--bld);border:1.5px solid var(--bl);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--bl);flex-shrink:0}
+.mgr-ri{flex:1}.mgr-rn{font-size:12px;font-weight:600}.mgr-rs{font-size:10px;color:var(--txd);margin-top:1px}
+.mgr-bar{height:4px;background:var(--bd);border-radius:2px;margin-top:4px;overflow:hidden}
+.mgr-fill{height:100%;border-radius:2px;transition:width .8s ease-out}
+
+
+
+
+/* DEFEND section */
+.sec-hdr.defend{color:var(--yl)}
+.sec-hdr .shield{font-size:11px;margin-right:2px}
+.row.defend-row{border-left:3px solid var(--yl);background:linear-gradient(90deg,rgba(251,191,36,.04),transparent 30%)}
+.row.defend-row.at-risk{border-left-color:var(--rd);background:linear-gradient(90deg,rgba(248,113,113,.04),transparent 30%)}
+
+/* Account health badge */
+.health-badge{padding:2px 6px;border-radius:3px;font-size:7px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.health-badge.green{background:var(--gng);color:var(--gn)}
+.health-badge.yellow{background:var(--ylg);color:var(--yl)}
+.health-badge.red{background:var(--rdg);color:var(--rd)}
+
+/* Defend brief extras */
+.b-relationship{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:8px;display:flex;gap:16px;flex-wrap:wrap}
+.b-rel-item{font-size:11px}
+.b-rel-label{color:var(--txd);font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.b-rel-val{color:var(--tx);font-weight:600;margin-top:2px}
+.b-rel-val.green{color:var(--gn)}.b-rel-val.yellow{color:var(--yl)}.b-rel-val.red{color:var(--rd)}
+
+
+
+
+
+/* Competitive window indicator */
+.cw{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:5px;font-size:9px;font-weight:600;font-family:var(--m)}
+.cw.urgent{background:var(--rdg);color:var(--rd)}
+.cw.closing{background:var(--ylg);color:var(--yl)}
+.cw.open{background:var(--gng);color:var(--gn)}
+.cw-icon{font-size:10px}
+
+/* TMS connection indicator */
+.tms-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:3px;font-size:8px;font-weight:600;background:rgba(52,211,153,.06);color:var(--gn);border:1px solid rgba(52,211,153,.12)}
+.tms-badge .tms-dot{width:4px;height:4px;border-radius:50%;background:var(--gn);animation:pulse 2s ease-in-out infinite}
+
+/* Defend score ring — urgency not prospect quality */
+.sr.defend-gn .fl{stroke:var(--gn)}.sr.defend-gn .sv{color:var(--gn)}
+.sr.defend-yl .fl{stroke:var(--yl)}.sr.defend-yl .sv{color:var(--yl)}
+.sr.defend-rd .fl{stroke:var(--rd)}.sr.defend-rd .sv{color:var(--rd)}
+
+/* Ops alerts */
+.ops-alert{background:rgba(251,191,36,.04);border:1px solid rgba(251,191,36,.12);border-radius:8px;padding:10px 12px;margin-bottom:6px}
+.ops-alert.red{background:rgba(248,113,113,.04);border-color:rgba(248,113,113,.12)}
+.ops-alert-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.ops-alert-who{font-size:10px;color:var(--tx2);font-weight:500}
+.ops-alert-when{font-size:9px;color:var(--txd);font-family:var(--m)}
+.ops-alert-sev{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.ops-alert-sev.yellow{background:var(--yl)}.ops-alert-sev.red{background:var(--rd)}
+.ops-alert-desc{font-size:11px;color:var(--tx2);line-height:1.45}
+.ops-alert-count{font-size:8px;color:var(--yl);font-family:var(--m);font-weight:600;margin-left:4px}
+
+/* Loading skeleton */
+.skeleton{background:linear-gradient(90deg,var(--s1) 25%,var(--s2) 50%,var(--s1) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:6px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+/* Toast notification */
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);padding:10px 20px;background:var(--gn);color:#050505;font-size:12px;font-weight:600;font-family:var(--f);border-radius:10px;z-index:100;opacity:0;transition:all .3s ease-out;pointer-events:none;box-shadow:0 4px 20px rgba(52,211,153,.3);white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-.hidden{display:none!important}
+/* Footer */
+.app-footer{position:absolute;bottom:52px;left:0;right:0;text-align:center;font-size:9px;color:var(--txd);z-index:1;pointer-events:none}
+.app-footer a{color:var(--bl);text-decoration:none;pointer-events:auto}
 
+/* Light mode */
+.shell.light{--bg:#F8FAFC;--s1:#FFFFFF;--s2:#F1F5F9;--s3:#E2E8F0;--hov:#EFF2F7;--bd:#E2E8F0;--bdl:#CBD5E1;--tx:#0F172A;--tx2:#475569;--txd:#94A3B8;--bl:#4A90D9;--bld:rgba(74,144,217,.06);--blg:rgba(74,144,217,.12);--gn:#059669;--gng:rgba(5,150,105,.1);--gnd:rgba(5,150,105,.05);--yl:#D97706;--ylg:rgba(217,119,6,.1);--rd:#DC2626;--rdg:rgba(220,38,38,.1)}
+.shell.light body,.shell.light{background:var(--bg);color:var(--tx)}
+.shell.light .top{background:linear-gradient(180deg,rgba(37,99,235,.03) 0%,var(--bg) 100%)}
+.shell.light .left{background:var(--bg);border-right-color:var(--bd)}
+.shell.light .right{background:var(--bg)}
+.shell.light .row{background:var(--s1);border-color:var(--bd)}
+.shell.light .row:hover{background:var(--hov);border-color:var(--bdl)}
+.shell.light .row.sel{border-color:var(--bl);background:rgba(37,99,235,.04)}
+.shell.light .row.top1{background:linear-gradient(90deg,rgba(5,150,105,.05),transparent 40%);box-shadow:0 0 12px rgba(5,150,105,.06)}
+.shell.light .row.defend-row{background:linear-gradient(90deg,rgba(217,119,6,.04),transparent 30%)}
+.shell.light .row.defend-row.at-risk{background:linear-gradient(90deg,rgba(220,38,38,.04),transparent 30%)}
+.shell.light .cmd{background:var(--bg)}
+.shell.light .cmd-in{background:var(--s1);border-color:var(--bd);color:var(--tx)}
+.shell.light .cmd-go{background:var(--bl)}
+.shell.light .r-action{background:var(--bg);border-bottom-color:var(--bd)}
+.shell.light .r-empty{background:radial-gradient(circle at 50% 40%,rgba(37,99,235,.03) 0%,transparent 70%)}
+.shell.light .bec{background:var(--s1);border-color:var(--bd)}
+.shell.light .bes{background:var(--s2);border-bottom-color:var(--bd)}
+.shell.light .sd{background:var(--s2);border-color:var(--bd)}
+.shell.light .bns{background:var(--s2);border-color:var(--bd)}
+.shell.light .mgr-funnel{background:var(--s1);border-color:var(--bd)}
+.shell.light .mgr-rep{background:var(--s1);border-color:var(--bd)}
+.shell.light .mgr-rep:hover{background:var(--hov)}
+.shell.light .b-relationship{background:var(--s2);border-color:var(--bd)}
+.shell.light .ops-alert{background:rgba(217,119,6,.04);border-color:rgba(217,119,6,.12)}
+.shell.light .mob-ov-el{background:var(--bg)}
+.shell.light .mob-back{background:var(--bg);border-bottom-color:var(--bd)}
+.shell.light .av-menu{background:var(--s1);border-color:var(--bd);box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.shell.light .toast{background:var(--gn);color:#fff}
+.shell.light .b-email-edit{background:var(--s1);border-color:var(--bl);color:var(--tx)}
+.shell.light .cc{background:var(--s1);border-color:var(--bd)}
+.shell.light .fc.on{background:rgba(37,99,235,.08);border-color:var(--bl)}
+.shell.light .vtab.on{background:rgba(37,99,235,.08);border-color:var(--bl)}
+.shell.light .sr .trk{stroke:var(--bd)}
+.shell.light .mgr-bar{background:var(--bd)}
+.shell.light .prog-bar{background:var(--bd)}
+.shell.light .logo span{color:var(--bl)}
+.shell.light .av{background:rgba(37,99,235,.06);border-color:var(--bl);color:var(--bl)}
+
+
+/* Manager view — full width dashboard */
 .shell.mgr-mode .left{width:100%;max-width:100%;border-right:none}
 .shell.mgr-mode .right{display:none!important}
+.mgr-full{padding:16px 24px 90px;overflow-y:auto;flex:1;min-height:0}
+.mgr-full::-webkit-scrollbar{width:3px}
+.mgr-full::-webkit-scrollbar-thumb{background:var(--bdl);border-radius:3px}
 
+/* Top metrics row */
+.mgr-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+@media(max-width:900px){.mgr-metrics{grid-template-columns:1fr}}
+
+.mgr-metric-card{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:16px}
+.mgr-metric-card.danger{border-color:rgba(248,113,113,.15)}
+.mgr-mc-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd)}
+.mgr-mc-label.rd{color:var(--rd)}
+.mgr-mc-val{font-family:var(--m);font-size:28px;font-weight:700;margin-top:4px}
+.mgr-mc-sub{font-size:10px;color:var(--txd);margin-top:2px}
+.mgr-mc-row{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px;padding-top:6px;border-top:1px solid var(--bd)}
+.mgr-mc-row-label{font-size:11px;color:var(--tx2)}
+.mgr-mc-row-val{font-family:var(--m);font-size:13px;font-weight:600}
+
+/* Funnel + rep grid side by side */
+.mgr-body{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mgr-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;min-width:0}
+@media(max-width:900px){.mgr-body{grid-template-columns:1fr}}
+
+/* Rep cards grid */
+.mgr-rep-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:700px){.mgr-rep-grid{grid-template-columns:1fr}}
+
+.mgr-rep-card{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:14px;cursor:pointer;transition:all .12s}
+.mgr-rep-card:hover{border-color:var(--bdl);background:var(--hov)}
+.mgr-rep-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.mgr-rep-av{width:36px;height:36px;border-radius:50%;background:var(--bld);border:1.5px solid var(--bl);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--bl);flex-shrink:0}
+.mgr-rep-name{font-size:13px;font-weight:600}
+.mgr-rep-title{font-size:10px;color:var(--txd)}
+.mgr-rep-stats{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mgr-rep-stat{padding:6px 8px;background:var(--s2);border-radius:6px}
+.mgr-rep-stat-val{font-family:var(--m);font-size:14px;font-weight:700}
+.mgr-rep-stat-label{font-size:8px;color:var(--txd);text-transform:uppercase;letter-spacing:.06em;margin-top:1px}
+.mgr-rep-spd{margin-top:8px;font-size:10px;display:flex;align-items:center;gap:6px}
+.mgr-rep-spd-dot{width:6px;height:6px;border-radius:50%}
+.mgr-rep-bar-wrap{margin-top:6px;height:4px;background:var(--bd);border-radius:2px;overflow:hidden}
+.mgr-rep-bar-fill{height:100%;border-radius:2px;transition:width .8s ease-out}
+
+/* Theme toggle button */
 .theme-toggle{width:26px;height:26px;border-radius:50%;background:transparent;border:1.5px solid var(--bdl);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;flex-shrink:0;color:var(--txd);padding:0}
 .theme-toggle:hover{border-color:var(--bl);color:var(--bl)}
 
-.shell.light{--bg:#F8FAFC;--s1:#FFFFFF;--s2:#F1F5F9;--s3:#E2E8F0;--hov:#EFF2F7;--bd:#E2E8F0;--bdl:#CBD5E1;--tx:#0F172A;--tx2:#475569;--txd:#94A3B8;--bl:#4A90D9;--bld:rgba(74,144,217,.06);--blg:rgba(74,144,217,.12);--gn:#059669;--gng:rgba(5,150,105,.1);--gnd:rgba(5,150,105,.05);--yl:#D97706;--ylg:rgba(217,119,6,.1);--rd:#DC2626;--rdg:rgba(220,38,38,.1)}
+.hidden{display:none!important}
+
+
+/* Mobile fixes */
+@media(max-width:480px){
+  .mgr-metrics{grid-template-columns:1fr!important}
+  .status{font-size:11px;padding:2px 12px}
+  .filters{padding:2px 12px 6px}
+  .list{padding:0 6px 90px}
+  .prog-wrap{padding:4px 12px 2px}
+  .rep-stats{padding:2px 12px 4px}
+  .r-action{padding:10px 16px}
+  .r-scroll{padding:0 16px 30px}
+  .b-wrap{padding:0}
+}
+@media(max-width:767px){
+  .mgr-rep-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -8px;padding:0 8px}
+  .mob-c .b-wrap{max-width:100%}
+  .mob-c .r-action-btns{gap:5px}
+  .mob-c .ab{padding:6px 10px;font-size:11px}
+}
+/* Marketing site alignment - glass + typography */
 .row{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
 .row:hover{background:rgba(255,255,255,0.10);border-color:rgba(255,255,255,0.14)}
 .row.sel{background:rgba(74,144,217,0.08);border-color:rgba(74,144,217,0.3)}
-.logo,.ri-n,.r-empty-title,.ds-n{font-family:var(--fh),sans-serif}
+.row.top1{background:linear-gradient(90deg,rgba(52,211,153,.08),rgba(255,255,255,0.06) 40%);border-left:3px solid var(--gn)}
+.logo,.ri-n,.r-empty-title{font-family:var(--fh),sans-serif}
 .logo{font-weight:800;letter-spacing:-.03em}
 .ri-n{font-weight:700;letter-spacing:-.01em}
-
+.left{background:var(--bg)}
+.right{background:var(--bg)}
+.top{background:linear-gradient(180deg,rgba(74,144,217,.06) 0%,var(--bg) 100%)}
 </style>
 </head>
 <body>
 
 <div class="shell" id="shell">
 <div class="left" id="lp">
-  <div class="top"><div class="logo">Sales<span>Scout</span></div><div class="tright"><button class="theme-toggle" onclick="toggleTheme()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/></svg></button><div class="tname">Demo Mode</div><div class="av" onclick="toggleAv()">DM<div class="av-menu" id="avm"><div class="av-i" onclick="setV('rep')">My Prospects</div><div class="av-i" onclick="setV('mgr')">Team Dashboard</div></div></div></div></div>
+  <div class="top"><div class="logo">Sales<span>Scout</span> <a href="https://freightscout.ai" target="_blank" style="font-size:9px;color:var(--txd);font-weight:400;letter-spacing:0;text-decoration:none;margin-left:8px">Powered by FreightScout.ai</a></div><div class="tright"><button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Toggle light/dark mode"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 1.5V7H12.5" stroke="currentColor" stroke-width="1.5" fill="var(--txd)" style="opacity:0.4"/></svg></button><div class="tname" id="rn">Alex Rivera</div><div class="av" id="av" onclick="toggleAv()">AR<div class="av-menu" id="avm"><div class="av-i" onclick="setV('rep')">My Prospects</div><div class="av-i" onclick="setV('mgr')">Team Dashboard</div><div class="av-i" style="border-top:1px solid var(--bd);margin-top:4px;padding-top:8px;color:var(--rd)">Sign Out</div></div></div></div></div>
 
-  <div class="status" id="st"></div>
-  <div class="prog-wrap"><div class="prog-bar"><div class="prog-fill" id="pf" style="width:60%"></div></div><div class="prog-label" id="pl">6/10</div></div>
-  <div class="filters" id="fi"></div>
-  <div class="list" id="li"></div>
+  <div id="vtog" class="vtog hidden"><button class="vtab on" onclick="setV('rep')">My Prospects</button><button class="vtab" onclick="setV('mgr')">Team Dashboard</button></div>
 
-  <div class="cmd"><div class="cmd-row"><input class="cmd-in" id="ci" placeholder="Brief me on a company..." /><button class="cmd-go" onclick="send()"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div></div>
+  <div id="rv" style="display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0">
+    <div class="status" id="st"></div>
+    <div class="prog-wrap"><div class="prog-bar"><div class="prog-fill" id="pf"></div></div><div class="prog-label" id="pl"></div></div>
+    <div class="rep-stats" id="rs"></div>
+    <div class="filters" id="fi"></div>
+    <div class="list" id="li"></div>
+  </div>
+
+  <div id="mv" style="flex:1;display:none;flex-direction:column;overflow:hidden;min-height:0"><div class="mgr-full" id="mc"></div></div>
+
+  <div class="cmd"><div class="cmd-chips" id="ch"></div><div class="cmd-row"><input class="cmd-in" id="ci" placeholder="Brief me on a company... (↑↓ to navigate, E to email)" onfocus="showC()" onblur="setTimeout(hideC,200)"/><button class="cmd-go" onclick="send()"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div></div>
+
   <div class="toast" id="toast"></div>
   <div class="mob-ov-el" id="mo"><div class="mob-back" onclick="closeMob()">&larr; Back</div><div class="mob-c" id="moc"></div></div>
 </div>
 
 <div class="right" id="rp">
-  <div class="r-empty" id="re"><div class="r-empty-inner"><div class="r-empty-icon">&#127919;</div><div class="r-empty-title">3 new prospects overnight</div><div class="r-empty-sub">Click one to see what SalesScout found. Your <span class="g">#1 prospect</span> is waiting.</div></div></div>
+  <div class="r-empty" id="re"><div class="r-empty-inner"><div class="r-empty-icon">🎯</div><div class="r-empty-title" id="reTitle">3 new prospects + 2 account alerts from TMS</div><div class="r-empty-sub" id="reSub">Click one to see what SalesScout found. Your <span class="g">#1 prospect</span> is waiting.</div></div></div>
   <div class="r-action" id="ra" style="display:none"></div>
   <div class="r-scroll" id="rc" style="display:none"></div>
 </div>
 </div>
 
 <script>
+var RN="Alex Rivera",ROLE="manager";
 var P=[
-{id:1,c:"Pacific Coast Foods",s:88,a:"PURSUE NOW",m:"$580M-$1.1B",h:"New Atlanta DC (1M sqft) + acquisition",cn:"Greg Morrison",ct:"SVP Supply Chain",ce:"g.morrison@pacificcoastfoods.com",ts:"Today, 5:47 AM",act:"new",zone:"new",sn:"Major natural/organic food distributor. 28K+ customers, 14 DCs.",trig:[{n:"Atlanta DC Grand Opening",t:1,e:"Nearly 1M sqft - largest facility to date.",d:"Mar 20"}],ang:"Reliability over price. 24/7 ops, team-based.",es:"Atlanta Distribution Center Freight Planning",eb:"Gerard - saw the Atlanta DC opened. Nearly a million square feet is no joke.\n\nWho is handling your Southeast lanes out of Savannah?\n\nAlex Rivera",wo:["Enterprise procurement - formal RFP.","Don't lead with price."],ns:"Email Greg Morrison about Atlanta DC freight planning"},
-{id:2,c:"Green Valley Produce",s:79,a:"PURSUE NOW",m:"$12M-$24M",h:"5 active Class I Listeria recalls",cn:"David Park",ct:"Dir. Supply Chain",ce:"dpark@greenvalleyproduce.com",ts:"Today, 6:02 AM",act:"new",zone:"new",sn:"Fresh-cut produce manufacturer. Multiple active FDA recalls.",trig:[{n:"5 Active FDA Recalls",t:1,e:"Class I Listeria. Active logistics disruption.",d:"Mar 2026"}],ang:"FDA recall = logistics emergency. 24/7 + food-grade expertise.",es:"Recall Logistics Support",eb:"David - saw the recall news. That is a brutal situation.\n\nDo you have someone handling the destruction loads?\n\nAlex Rivera",wo:["Lead with empathy, not sales pitch."],ns:"Email David Park about recall logistics"},
-{id:3,c:"Summit Packaging Group",s:74,a:"PURSUE NOW",m:"$890M-$1.6B",h:"New aluminum can plant Greenville, VA",cn:"Rachel Torres",ct:"Dir. Logistics",ce:"r.torres@summitpackaging.com",ts:"Today, 6:18 AM",act:"new",zone:"new",sn:"Industrial packaging manufacturer. $6.2B revenue.",trig:[{n:"Greenville SC Packaging Plant",t:1,e:"New manufacturing facility in SE.",d:"Feb 2026"}],ang:"Same profile as Atlas Container. Proof points transfer.",es:"Greenville Plant Freight Planning",eb:"Rachel - saw the Greenville plant announcement.\n\nAre you guys already planning the carrier setup?\n\nAlex Rivera",wo:["Large enterprise - long procurement."],ns:"Email Rachel Torres about Greenville freight"}
+{id:1,c:"Pacific Coast Foods",s:88,a:"PURSUE NOW",m:"$580M–$1.1B",mb:"food/bev distributor",h:"New Atlanta DC (1M sqft) + Savannah FL + DPI acquisition",cn:"Greg Morrison",ct:"SVP Supply Chain",ce:"g.morrison@pacificcoastfoods.com",cl:"#",ph:"(503) 555-0142",ts:"Today, 5:47 AM",act:"new",zone:"new",sn:"Major natural/organic food distributor. 28K+ customers, 14 DCs across the US.",trig:[{n:"Atlanta DC Grand Opening",t:1,e:"Nearly 1M sqft  - largest facility to date.",d:"Mar 20"},{n:"Regional Distributor Acquisition",t:1,e:"Expands fresh + Western US distribution.",d:"Mar 15"},{n:"Savannah GA Facility",t:1,e:"61% capacity increase. your brokerage backyard.",d:"Feb 2026"}],ang:"Reliability over price. 24/7 ops, team-based. Atlas Container Corp COTY 3yr running. Retailer compliance expertise.",es:"Atlanta Distribution Center Freight Planning",eb:"Gerard - saw the Atlanta DC opened. Nearly a million square feet is no joke.\n\nWho's handling your Southeast lanes out of Savannah? Curious if you've got that locked down or if it's still being figured out.\n\nAlex Rivera\nyour brokerage",wo:["Employee-owned, strong internal logistics.","Enterprise procurement  - formal RFP.","Don't lead with price.","Savannah is in your backyard."],window:"48-72 hrs",ns:"Email Greg Morrison (SVP Supply Chain) about Atlanta DC freight planning",al:"Amy Chen (Dir. Supply Chain), Dave Kowalski (Dir. Supply Chain)",sd:{f:{r:"Strong",p:15},t:{r:"Strong",p:15},pa:{r:"Strong",p:15},ri:{r:"Low",p:15},t1:3,ct:1,rc:0,fl:0}},
+{id:2,c:"Green Valley Produce",s:79,a:"PURSUE NOW",m:"$12M–$24M",mb:"food manufacturer",h:"5 active Class I Listeria recalls  - logistics crisis",cn:"David Park",ct:"Dir. Supply Chain",ce:"dpark@greenvalleyproduce.com",cl:"",ph:"(916) 555-0198",ts:"Today, 6:02 AM",act:"new",zone:"new",sn:"Fresh-cut produce manufacturer. Multiple active FDA recalls.",trig:[{n:"5 Active FDA Recalls",t:1,e:"Class I Listeria. Active logistics disruption.",d:"Mar 2026"}],ang:"FDA recall = logistics emergency. 24/7 + food-grade expertise. Destruction loads, recall protocols.",es:"Recall Logistics Support",eb:"David - saw the recall news. That's a brutal situation and I know the logistics side is probably chaos right now.\n\nDo you have someone handling the destruction loads and reroutes or is that still up in the air?\n\nAlex Rivera\nyour brokerage",wo:["Lead with empathy, not sales pitch.","May have emergency logistics already.","Deliver or lose them."],window:"12-24 hrs",ns:"Email David Park (Dir. Supply Chain) about recall logistics",al:"",sd:{f:{r:"Strong",p:15},t:{r:"Strong",p:15},pa:{r:"Strong",p:15},ri:{r:"Medium",p:10},t1:1,ct:1,rc:1,fl:0}},
+{id:3,c:"Summit Packaging Group",s:74,a:"PURSUE NOW",m:"$890M–$1.6B",mb:"packaging manufacturer",h:"New aluminum can plant Greenville, VA",cn:"Rachel Torres",ct:"Dir. Logistics",ce:"r.torres@summitpackaging.com",cl:"#",ph:"",ts:"Today, 6:18 AM",act:"new",zone:"new",sn:"Industrial packaging manufacturer. $6.2B revenue. Beverage and food containers.",trig:[{n:"Greenville SC Packaging Plant",t:1,e:"New manufacturing facility in SE.",d:"Feb 2026"}],ang:"Same profile as Atlas Container. Proof points transfer. Greenville within SE coverage.",es:"Greenville Plant Freight Planning",eb:"Rachel - saw the Greenville plant announcement. Big add for your Southeast network.\n\nAre you guys already planning the carrier setup for the Virginia lanes or is that still early?\n\nAlex Rivera\nyour brokerage",wo:["Large enterprise ($6.2B)  - long procurement.","Don't name Atlas Container without permission.","Aerospace is separate."],window:"72+ hrs",ns:"Email Rachel Torres (Dir. Logistics) about Greenville freight",al:"Mark Chen (Supply Chain Mgr)",sd:{f:{r:"Strong",p:15},t:{r:"Moderate",p:10},pa:{r:"Moderate",p:10},ri:{r:"Medium",p:10},t1:1,ct:1,rc:0,fl:0}},
+{id:4,c:"Heartland Baking Co",s:82,a:"PURSUE NOW",m:"$420M–$780M",mb:"food manufacturer",h:"Expanding Southeast DSD network . NEEDS FOLLOW-UP",cn:"James Mitchell",ct:"VP Transportation",ce:"j.mitchell@heartlandbaking.com",cl:"#",ph:"(316) 555-0167",ts:"Mar 27, 9:30 AM",act:"fu",ad:"Mar 27",zone:"pipe",sn:"Regional bread and bakery manufacturer. 8K+ employees.",trig:[{n:"Southeast DSD Expansion",t:1,e:"Adding distribution points FL + GA.",d:"Mar 2026"},{n:"Hiring Logistics",t:2,e:"Multiple coordinator postings in SE.",d:"Mar 2026"}],ang:"DSD expansion = more temp-controlled moves. 24/7 + reefer expertise. Jacksonville covers corridor.",es:"Southeast DSD Expansion",eb:"James - circling back on the FL and GA expansion. Adding DSD points is great but reefer capacity gets tight fast in the Southeast this time of year.\n\nGot 10 minutes this week?\n\nAlex Rivera\nyour brokerage",wo:["DSD is high-frequency . confirm fit.","Established carrier base.","Lead with freshness compliance."],ns:"Follow up with James Mitchell on Southeast DSD",al:"",sd:{f:{r:"Strong",p:15},t:{r:"Strong",p:15},pa:{r:"Moderate",p:10},ri:{r:"Medium",p:10},t1:1,ct:1,rc:0,fl:0}},
+{id:5,c:"Atlas Container Corp",s:85,a:"PURSUE NOW",m:"$1.2B–$2.1B",mb:"packaging manufacturer",h:"SE packaging line expansion",cn:"Robert Anselmo",ct:"VP Supply Chain",ce:"r.anselmo@atlascontainer.com",cl:"#",ph:"(410) 555-0134",ts:"Mar 28, 1:45 PM",act:"sent",ad:"Mar 28",zone:"pipe",sn:"Metal packaging manufacturer. 18K+ employees, 150+ plants. Existing relationship.",trig:[{n:"Southeast Packaging Expansion",t:1,e:"New line capacity.",d:"Mar 2026"}],ang:"Already Carrier of the Year 2 years running. Expansion play . deeper lanes.",es:"Expanded Lanes from New Capacity",eb:"Hey - saw the new line is coming online. Are there lanes opening up from the expansion that we should get ahead of?\n\nLet me know and I'll put something together.\n\nAlex Rivera\nyour brokerage",wo:["Existing relationship.","Internal logistics may handle new lanes first."],ns:"Email VP Supply Chain about expanded lanes",al:"",sd:{f:{r:"Strong",p:15},t:{r:"Strong",p:15},pa:{r:"Moderate",p:10},ri:{r:"Low",p:15},t1:1,ct:0,rc:0,fl:0}},
+{id:6,c:"National Industrial Supply",s:60,a:"PURSUE WITH VALIDATION",m:"$328M–$656M",mb:"industrial distributor",h:"900K sqft GA DC + CEO transition July '26",cn:"Lucas Chen",ct:"VP Supply Chain",ce:"l.chen@nationalindustrial.com",cl:"#",ph:"",ts:"Mar 28, 2:45 PM",act:"sent",ad:"Mar 28",zone:"pipe",sn:"Industrial supply distributor. $5.4B revenue, 1,200 branches.",trig:[{n:"Tennessee DC",t:1,e:"900K sqft Murfreesboro. Opens spring 2027.",d:"Mar 24"},{n:"CEO Transition",t:1,e:"CEO retiring July.",d:"Dec 2025"}],ang:"Reliability play. 24/7 + team-based during transition.",es:"Murfreesboro DC Freight Planning",eb:"Lucas - congrats on the Murfreesboro groundbreaking. Big upgrade from the Nashville facility.\n\nHow are you thinking about freight coverage for the transition? Especially nights and weekends when things tend to go sideways.\n\nAlex Rivera\nyour brokerage",wo:["Operates internal LTL division.","$5.4B  - complex procurement.","Outside core vertical.","Don't call transition instability."],window:"48-72 hrs",ns:"Email Lucas Chen about Murfreesboro DC",al:"Noah Park (Dir.), Sarah Lin (Dir.)",sd:{f:{r:"Moderate",p:10},t:{r:"Strong",p:15},pa:{r:"Moderate",p:10},ri:{r:"Medium",p:10},t1:2,ct:1,rc:0,fl:0}},
+{id:7,c:"Heritage Health Products",s:55,a:"MONITOR",m:"$8M–$16M",mb:"health/wellness",h:"Hiring logistics coordinator",cn:"Tony Reeves",ct:"Operations Manager",ce:"t.reeves@heritagehealthprod.com",cl:"",ph:"",ts:"Mar 26",act:"new",zone:"pipe",sn:"Nutritional supplements. Small but growing.",trig:[{n:"Logistics Coordinator Hiring",t:2,e:"Job posting signals scaling.",d:"Mar 2026"}],ang:"Small. First real broker relationship opportunity.",es:"Scaling Your Logistics",eb:"Saw you're bringing on a logistics coordinator. Sounds like things are picking up.\n\nWhen volume starts climbing the freight piece can sneak up on you. Happy to chat if you want to talk through what that usually looks like.\n\nAlex Rivera\nyour brokerage",wo:["Very small.","Monitor only.","May build in-house."],ns:"Monitor . revisit if volume emerges",al:"",sd:{f:{r:"Weak",p:5},t:{r:"Moderate",p:10},pa:{r:"Weak",p:5},ri:{r:"Medium",p:10},t1:0,ct:0,rc:0,fl:0}},
+{id:10,c:"Southeastern Dairy Cooperative",s:77,a:"PURSUE NOW",m:"$180M-$340M",mb:"dairy processor",h:"New cold storage facility in Augusta, GA",cn:"Michelle Torres",ct:"Dir. Logistics",ce:"m.torres@southeastdairy.com",cl:"#",ph:"(706) 555-0221",ts:"Mar 26, 11:20 AM",act:"sent",ad:"Mar 26",zone:"pipe",sn:"Regional dairy cooperative. 12 member farms. Growing Southeast distribution.",trig:[{n:"Augusta Cold Storage Facility",t:1,e:"48K sqft cold storage build. Opens Q3 2026.",d:"Mar 2026"}],ang:"Cold chain expertise. Reefer capacity in the Southeast corridor. Augusta is within your coverage area.",es:"Augusta Cold Storage Freight Planning",eb:"Michelle - saw the Augusta cold storage facility announcement. 48K sqft is a solid investment in Southeast distribution.\n\nAre you set on carrier capacity for the reefer lanes or still figuring that out?\n\nAlex Rivera",wo:["Dairy co-ops often have established carrier relationships.","Cold chain compliance is critical - lead with your reefer track record."],ns:"Follow up with Michelle Torres on Augusta facility",al:"",sd:{f:{r:"Strong",p:15},t:{r:"Moderate",p:10},pa:{r:"Moderate",p:10},ri:{r:"Medium",p:10},t1:1,ct:1,rc:0,fl:0}},
+{id:11,c:"Trident Building Materials",s:71,a:"PURSUE NOW",m:"$95M-$210M",mb:"building products",h:"3 new Southeast retail partnerships announced",cn:"Kevin O'Brien",ct:"VP Operations",ce:"kobrien@tridentbm.com",cl:"#",ph:"(404) 555-0188",ts:"Mar 25, 3:45 PM",act:"fu",ad:"Mar 25",zone:"pipe",sn:"Building materials distributor. Lumber, drywall, roofing. Expanding retail presence.",trig:[{n:"Southeast Retail Expansion",t:1,e:"Partnerships with 3 major home improvement chains in FL and GA.",d:"Mar 2026"}],ang:"Building materials = heavy, flatbed freight. If they're adding retail partners, delivery volume is about to spike.",es:"Southeast Retail Expansion Freight",eb:"Kevin - circling back on the retail expansion. Three new partnerships in FL and GA means a lot more deliveries hitting at once.\n\nHave you stress-tested your flatbed capacity for the ramp? Worth a quick call.\n\nAlex Rivera",wo:["Flatbed freight is specialized - confirm your carrier base covers this.","Building materials have seasonal demand spikes."],ns:"Follow up with Kevin O'Brien on retail expansion",al:"",sd:{f:{r:"Moderate",p:10},t:{r:"Strong",p:15},pa:{r:"Moderate",p:10},ri:{r:"Medium",p:10},t1:1,ct:1,rc:0,fl:0}},
+{id:12,c:"Blue Ridge Chemicals",s:68,a:"PURSUE NOW",m:"$240M-$450M",mb:"specialty chemicals",h:"New VP Logistics starting May + hazmat compliance changes",cn:"Patricia Nguyen",ct:"VP Logistics",ce:"p.nguyen@blueridgechem.com",cl:"#",ph:"",ts:"Mar 27, 2:00 PM",act:"sent",ad:"Mar 27",zone:"pipe",sn:"Specialty chemical manufacturer. Hazmat freight. 6 plants across Southeast.",trig:[{n:"New VP Logistics",t:1,e:"Incoming VP starts May 1. Previous VP retired.",d:"Mar 2026"},{n:"DOT Hazmat Rule Change",t:2,e:"New compliance requirements effective June. Carriers scrambling.",d:"Feb 2026"}],ang:"Hazmat expertise is rare. Leadership change + compliance change = window of opportunity. New VP will be evaluating all carrier partners.",es:"Hazmat Compliance Changes - Carrier Review",eb:"Patricia - welcome aboard. Wanted to introduce myself before the June compliance deadline hits.\n\nThe new DOT hazmat rules are going to thin out the carrier pool fast. Happy to walk you through how we handle it if that would be useful.\n\nAlex Rivera",wo:["Hazmat is specialized - confirm your carrier base is compliant.","New leadership = vendor review is likely.","Don't rush the relationship - she just started."],ns:"Follow up with Patricia Nguyen on hazmat compliance",al:"David Kim (Dir. Transportation)",sd:{f:{r:"Strong",p:15},t:{r:"Strong",p:15},pa:{r:"Moderate",p:10},ri:{r:"Medium",p:10},t1:1,ct:1,rc:0,fl:0}},
+{id:8,c:"Continental Beverage Group",s:75,ds:"OPPORTUNITY",a:"EXISTING CUSTOMER",m:"$4.2M/yr managed",mb:"current account",h:"New Southeast distribution hub announced",cn:"Karen Walsh",ct:"Dir. Transportation",ce:"k.walsh@continentalbev.com",cl:"#",ph:"(314) 555-0211",ts:"Today, 5:52 AM",act:"defend",ad:"",zone:"defend",sn:"Major beverage manufacturer. Customer for 3 years. $4.2M annual freight under management. 98.2% on-time rate.",trig:[{n:"New Southeast Distribution Hub",t:1,e:"Continental Beverage announced a new distribution facility in central FL to support Southeast growth.",d:"Mar 22"},{n:"Q1 Volume Increase",t:2,e:"Earnings call mentioned 8% volume growth in North America Q1.",d:"Mar 18"}],ang:"You already have this relationship. The question is whether you expand with them or someone else gets the new lanes. Lead with your track record: 98.2% on-time, 3 years running.",es:"New FL Distribution Hub . Capacity Planning",eb:"Karen - saw the FL hub announcement. Big move for the Southeast.\n\nWanted to get ahead of this before lanes start getting allocated. We've been at 98.2% on your network and I don't want someone else getting first crack at the new facility freight.\n\nGot 15 minutes this week?\n\nAlex Rivera\nyour brokerage",wo:["This is an EXISTING customer . do NOT approach as cold outreach.","Lead with your service record, not capabilities.","Other brokers will be calling about this too. Speed matters.","Ask about timeline for first inbound/outbound loads."],ns:"Email Karen Walsh about FL distribution hub capacity planning",al:"Mike Torres (Logistics Mgr)",health:"green",healthLabel:"Healthy · 98.2% OT",managed:"$4.2M/yr",tenure:"3 years",sd:{f:{r:"Strong",p:15},t:{r:"Strong",p:15},pa:{r:"Strong",p:15},ri:{r:"Low",p:15},t1:1,ct:1,rc:0,fl:0}},
+{id:9,c:"Pinnacle Consumer Products",s:92,ds:"URGENT",a:"EXISTING CUSTOMER",m:"$1.8M/yr managed",mb:"current account",h:"Leadership change  - new VP Supply Chain starting April",cn:"Incoming VP Supply Chain",ct:"VP Supply Chain (starting April 1)",ce:"",cl:"",ph:"",cn2:"Lisa Park",ct2:"Dir. Transportation (current contact)",ce2:"l.park@pinnacleconsumer.com",ph2:"(510) 555-0189",ts:"Today, 6:11 AM",act:"defend",ad:"",zone:"defend",sn:"Consumer goods manufacturer. Customer for 18 months. $1.8M annual. Recent on-time dip to 94.1%.",trig:[{n:"New VP Supply Chain",t:1,e:"Current VP departing. New hire starting April 1. Vendor reviews likely.",d:"Mar 25"}],ang:"Leadership change at a current customer is the highest-risk moment for account retention. The new VP will evaluate every vendor. Be the first broker to introduce yourself and present your track record . before competitors do.",es:"Introduction . your brokerage Partnership",eb:"Hey - Alex Rivera from your brokerage. We handle about $1.8M of Pinnacle freight annually.\n\nWanted to introduce myself before you get settled in. I also want to be straight with you - we had a late delivery at Stockton this week and that\'s on us. Happy to walk you through what we\'re doing about it.\n\nCan I get 15 minutes on your calendar when you\'re ready?\n\nAlex Rivera\nyour brokerage",wo:["ACCOUNT AT RISK . new leadership + active ops alerts. This account needs immediate attention.","Your on-time has dipped to 94.1%. Acknowledge this proactively.","Do NOT wait for the new VP to call you. Be first.","Prepare a QBR deck with your service metrics before the call."],"ops_alerts":[{"who":"Jenny Park (Ops Coordinator)","when":"Yesterday, 4:22 PM","sev":"yellow","desc":"Driver arrived 90 min late to Pinnacle Stockton facility. Receiver docked penalty fee. Customer contact expressed frustration."},{"who":"Derek Palmer (Account Mgr)","when":"Mar 25, 11:15 AM","sev":"yellow","desc":"Pinnacle requested rate quote for 3 new Southeast lanes. May be shopping other brokers."}],ns:"Email new VP Supply Chain immediately . introduce yourself before competitors do",al:"",health:"yellow",healthLabel:"At Risk · 94.1% OT · Leadership Change",managed:"$1.8M/yr",tenure:"18 months",sd:{f:{r:"Strong",p:15},t:{r:"Strong",p:15},pa:{r:"Strong",p:15},ri:{r:"High",p:5},t1:1,ct:0,rc:0,fl:0}}
 ];
 
-var filter="all",sel=-1;
+var starters=["\uD83D\uDCDE Who should I call first?","\uD83D\uDD0D Shippers expanding SE","\uD83C\uDFED Manufacturers + new facilities","\u26A0\uFE0F FDA recalls this week","\uD83C\uDFAF Broker-dependent near JAX"];
+var team=[{n:"Alex Rivera",i:"AR",b:24,e:18,mt:3,pl:"$2.4M",p:85,spd:42,spdLabel:"42 min"},{n:"Clayton Harris",i:"CH",b:31,e:27,mt:5,pl:"$3.8M",p:95,spd:12,spdLabel:"12 min"},{n:"Maria Santos",i:"MS",b:19,e:12,mt:2,pl:"$1.6M",p:65,spd:180,spdLabel:"3.0 hrs"},{n:"Derek Palmer",i:"DP",b:8,e:4,mt:0,pl:"$420K",p:25,spd:4680,spdLabel:"3.2 days"}];
+
+var view="rep",filter="all",sel=-1,firstBrief=true;
+
 function sc(s){return s>=70?"gn":s>=40?"yl":"rd"}
 function vc(a){return a==="PURSUE NOW"?"pn":a.includes("VAL")?"pv":"mo"}
+function actTxt(p){return p.act==="sent"?"SENT "+p.ad:p.act==="fu"?"FOLLOW UP":"NEW"}
+function verdTxt(a){return a==="PURSUE WITH VALIDATION"?"VALIDATE":a==="PURSUE NOW"?"PURSUE":a}
+function mf(p){if(filter==="all")return 1;if(filter==="pn")return p.a==="PURSUE NOW";if(filter==="pv")return p.a.includes("VAL");if(filter==="fu")return p.act==="fu";if(filter==="mo")return p.a==="MONITOR";return 1}
+function mh(p){return"mailto:"+(p.ce||"")+"?subject="+encodeURIComponent(p.es||"")+"&body="+encodeURIComponent(p.eb||"")}
 
 function init(){
-  document.getElementById("st").innerHTML="Good morning. <span class='g'>3 new</span> prospects overnight.";
-  renderFi();renderLi();
+  if(ROLE==="manager"){document.getElementById("vtog").classList.remove("hidden");view="mgr";}
+  var newC=P.filter(function(p){return p.zone==="new"}).length;
+  document.getElementById("reTitle").textContent=newC+" new prospects overnight";
+  render();
+}
+
+function render(){
+  var shell=document.getElementById("shell");
+  if(view==="rep"){
+    shell.classList.remove("mgr-mode");
+    document.getElementById("rv").style.display="flex";
+    document.getElementById("mv").style.display="none";
+    renderSt();renderFi();renderLi();
+  } else {
+    shell.classList.add("mgr-mode");
+    document.getElementById("rv").style.display="none";
+    document.getElementById("mv").style.display="flex";
+    renderMgr();
+  }
+  document.querySelectorAll(".vtab").forEach(function(t,i){t.classList.toggle("on",i===(view==="rep"?0:1))});
+}
+
+function renderSt(){
+  var newC=P.filter(function(p){return p.zone==="new"}).length;
+  var fuC=P.filter(function(p){return p.act==="fu"}).length;
+  var contacted=P.filter(function(p){return(p.act==="sent"||p.act==="fu")&&p.zone!=="defend"}).length;
+  var totalProspects=P.filter(function(p){return p.zone!=="defend"}).length;
+  var pct=Math.round((contacted/totalProspects)*100);
+  var h=new Date().getHours(),g=h<12?"Good morning":"Good afternoon";
+  var s=g+", <strong>"+RN.split(" ")[0]+"</strong>.";
+  var defC=P.filter(function(p){return p.zone==="defend"}).length;
+  if(newC>0) s+=" <span class='g'>"+newC+" new</span> overnight.";
+  if(defC>0) s+=" <span class='w'>"+defC+" accounts to defend.</span>";
+  if(fuC>0) s+=" <span class='w'>"+fuC+" need follow-up.</span>";
+  document.getElementById("st").innerHTML=s;
+  document.getElementById("pf").style.width=pct+"%";
+  document.getElementById("pl").textContent=contacted+"/"+P.length;
+  document.getElementById("rs").innerHTML="<span>"+contacted+"/"+P.length+" contacted</span> · <span>18 emails this week</span> · <span>#2 on team</span>";
 }
 
 function renderFi(){
-  var h="";
-  [["all","All "+P.length],["pn","Pursue"]].forEach(function(f){
-    h+='<button class="fc'+(filter===f[0]?" on":"")+'" onclick="sf(\''+f[0]+'\')">'+f[1]+'</button>';
+  var c={all:P.length,pn:0,pv:0,fu:0,mo:0};
+  P.forEach(function(p){if(p.a==="PURSUE NOW")c.pn++;if(p.a.includes("VAL"))c.pv++;if(p.act==="fu")c.fu++;if(p.a==="MONITOR")c.mo++});
+  var h="";[["all","All"],["pn","Pursue"],["pv","Validate"],["fu","Follow-up"],["mo","Monitor"]].forEach(function(f){
+    h+='<button class="fc'+(filter===f[0]?" on":"")+'" onclick="sf(\''+f[0]+'\')">'+f[1]+' '+c[f[0]]+'</button>';
   });
   document.getElementById("fi").innerHTML=h;
 }
 
 function renderLi(){
-  var el=document.getElementById("li"),h="";
-  h+='<div class="sec-hdr"><span class="pulse"></span> NEW TODAY</div>';
-  P.forEach(function(p,i){
-    var col=sc(p.s),circ=2*Math.PI*12.6,off=circ-(p.s/100)*circ;
-    var cls="row"+(i===0?" top1":"")+(i===sel?" sel":"");
-    h+='<div class="'+cls+'" onclick="pick('+i+')" style="animation-delay:'+(i*0.04)+'s">';
-    h+='<div class="sr '+col+'"><svg viewBox="0 0 32 32"><circle class="trk" cx="16" cy="16" r="12.6"/><circle class="fl" cx="16" cy="16" r="12.6" data-off="'+off+'"/></svg><div class="sv">'+p.s+'</div></div>';
-    h+='<div class="ri-i"><div class="ri-n">'+p.c+'</div><div class="ri-h">'+p.h+'</div></div>';
-    h+='<div class="ri-r"><span class="cbadge '+vc(p.a)+'">'+p.a+'</span><span class="ri-ts">'+p.ts.split(",")[0]+'</span></div>';
-    h+='</div>';
-  });
+  var el=document.getElementById("li");
+  var newP=P.filter(function(p){return p.zone==="new"&&mf(p)});
+  var pipeP=P.filter(function(p){return p.zone==="pipe"&&mf(p)});
+  // FIXED: sort pipeline — follow-ups first, then sent, then new
+  var sortOrd={fu:0,sent:1,new:2};
+  pipeP.sort(function(a,b){return(sortOrd[a.act]!==undefined?sortOrd[a.act]:2)-(sortOrd[b.act]!==undefined?sortOrd[b.act]:2)});
+
+  var defendP=P.filter(function(p){return p.zone==="defend"});
+
+  var h="";
+  if(newP.length>0){
+    h+='<div class="sec-hdr"><span class="pulse"></span> NEW TODAY \u00B7 '+newP.length+'<span class="refresh">Last scan: 6:18 AM</span></div>';
+    newP.forEach(function(p,i){h+=rHtml(p,"new",i)});
+  }
+  if(defendP.length>0){
+    h+='<div class="sec-hdr defend" style="margin-top:6px"><span class="shield">\uD83D\uDEE1</span> DEFEND YOUR ACCOUNTS \u00B7 '+defendP.length+'<span style="margin-left:auto"><span class="tms-badge"><span class="tms-dot"></span>TMS Connected</span></span></div>';
+    defendP.forEach(function(p,i){h+=rHtml(p,"defend",i+newP.length)});
+  }
+  if(pipeP.length>0){
+    h+='<div class="sec-hdr" style="margin-top:4px">YOUR PIPELINE \u00B7 '+pipeP.length+'</div>';
+    pipeP.forEach(function(p,i){h+=rHtml(p,"pipe",i+newP.length+defendP.length)});
+  }
+  if(!h) h='<div style="padding:20px;text-align:center;color:var(--txd);font-size:12px">No prospects match this filter.</div>';
   el.innerHTML=h;
   setTimeout(function(){el.querySelectorAll(".fl").forEach(function(f){f.style.strokeDashoffset=f.getAttribute("data-off")})},60);
 }
 
-function pick(i){
-  sel=i;var p=P[i];
-  if(window.innerWidth>=768){
-    var ra=document.getElementById("ra"),rc=document.getElementById("rc"),re=document.getElementById("re");
-    ra.innerHTML='<div class="r-action-btns"><a href="mailto:'+p.ce+'" class="ab em">Email '+p.cn.split(" ")[0]+'</a><button class="ab cp" onclick="cpE('+i+')">Copy Email</button></div><div class="r-action-who"><strong>'+p.cn+'</strong> - '+p.ct+'</div>';
-    ra.style.display="block";
-    rc.innerHTML=briefHtml(p);rc.style.display="block";rc.scrollTop=0;
-    re.style.display="none";
+function rHtml(p,zone,di){
+  var idx=P.indexOf(p),col=sc(p.s),circ=2*Math.PI*12.6,off=circ-(p.s/100)*circ;
+  var isNew=zone==="new";
+  var isDefend=zone==="defend";
+  var isTop=isNew&&P.filter(function(x){return x.zone==="new"}).indexOf(p)===0;
+  var cls="row"+(isTop?" top1":"")+(isDefend?" defend-row":"")+(isDefend&&p.health==="yellow"?" at-risk":"")+(idx===sel?" sel":"")+(isNew&&p.act==="new"?" unseen":"");
+  var h='<div class="'+cls+'" onclick="pick('+idx+')" style="animation-delay:'+(di*0.04)+'s">';
+  var ringCol=isDefend?(p.ds==="URGENT"?"defend-rd":p.health==="yellow"?"defend-yl":"defend-gn"):col;
+  h+='<div class="sr '+ringCol+'"><svg viewBox="0 0 32 32"><circle class="trk" cx="16" cy="16" r="12.6"/><circle class="fl" cx="16" cy="16" r="12.6" data-off="'+off+'"/></svg><div class="sv">'+p.s+'</div></div>';
+  var money=isDefend&&p.managed?p.managed:p.m+'/yr';
+  h+='<div class="ri-i"><div class="ri-n">'+p.c+' <span style="color:var(--gn);font-family:var(--m);font-size:9px;font-weight:500">'+money+'</span></div><div class="ri-h">'+p.h+'</div></div>';
+  h+='<div class="ri-r">';
+  if(isDefend&&p.health){h+='<span class="health-badge '+p.health+'">'+p.healthLabel+'</span>';if(p.ops_alerts&&p.ops_alerts.length>0){h+='<span class="ops-alert-count">\u26A0 '+p.ops_alerts.length+' ops alert'+(p.ops_alerts.length>1?'s':'')+'</span>'}}
+  else{h+='<span class="cbadge '+vc(p.a)+'"><span class="act-line">'+actTxt(p)+'</span>'+verdTxt(p.a)+'</span>'}
+  h+='<span class="ri-ts">'+p.ts.split(",")[0]+'</span>';
+  if(isNew&&p.window){var wclass=p.window.indexOf("12")>=0?"urgent":p.window.indexOf("48")>=0?"closing":"open";h+='<span class="cw '+wclass+'"><span class="cw-icon">\u23F1</span>'+p.window+'</span>'}
+  h+='</div></div>';
+  return h;
+}
+
+function renderMgr(){
+  var el=document.getElementById("mc");
+  var tb=0,te=0,tm=0;team.forEach(function(r){tb+=r.b;te+=r.e;tm+=r.mt});
+
+  var h='';
+
+  // Compact metrics strip — horizontal row of key numbers
+  h+='<div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">';
+  h+='<div style="flex:1;min-width:0;flex-basis:140px;background:var(--s1);border:1px solid rgba(248,113,113,.15);border-radius:8px;padding:12px"><div style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rd)">UNTOUCHED</div><div style="font-family:var(--m);font-size:24px;font-weight:700;color:var(--rd);margin-top:2px">$6.4M</div><div style="font-size:9px;color:var(--txd);margin-top:1px">of $14.6M surfaced</div></div>';
+  h+='<div style="flex:1;min-width:0;flex-basis:140px;background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:12px"><div style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd)">PIPELINE</div><div style="font-family:var(--m);font-size:24px;font-weight:700;color:var(--gn);margin-top:2px">$8.2M</div><div style="font-size:9px;color:var(--gn);margin-top:1px">+$1.4M vs last wk</div></div>';
+  h+='<div style="flex:1;min-width:0;flex-basis:140px;background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:12px"><div style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd)">BRIEFS \u2192 EMAILS</div><div style="font-family:var(--m);font-size:24px;font-weight:700;color:var(--bl);margin-top:2px">'+tb+' \u2192 '+te+'</div><div style="font-size:9px;color:var(--gn);margin-top:1px">74% conversion \u00B7 +22% vs last wk</div></div>';
+  h+='<div style="flex:1;min-width:0;flex-basis:140px;background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:12px"><div style="font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd)">MEETINGS</div><div style="font-family:var(--m);font-size:24px;font-weight:700;color:var(--yl);margin-top:2px">'+tm+'</div><div style="font-size:9px;color:var(--gn);margin-top:1px">+2 vs last wk \u00B7 2 accounts defended</div></div>';
+  h+='</div>';
+
+  // Rep performance — compact table-style rows
+  h+='<div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--txd);margin:4px 0 6px">REP PERFORMANCE</div>';
+
+  // Table header
+  h+='<div style="display:grid;grid-template-columns:180px repeat(5,1fr) 120px;gap:0;padding:6px 12px;font-size:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--txd)">';
+  h+='<span>Rep</span><span style="text-align:right">Briefs</span><span style="text-align:right">Emails</span><span style="text-align:right">Meetings</span><span style="text-align:right">Pipeline</span><span style="text-align:right">Speed</span><span style="text-align:right">Activity</span></div>';
+
+  // Rep rows
+  team.forEach(function(r){
+    var spdCol=r.spd<60?"var(--gn)":r.spd<1440?"var(--yl)":"var(--rd)";
+    var perfCol=r.p>=70?"var(--gn)":r.p>=40?"var(--yl)":"var(--rd)";
+    h+='<div style="display:grid;grid-template-columns:180px repeat(5,1fr) 120px;gap:0;padding:10px 12px;background:var(--s1);border:1px solid var(--bd);border-radius:8px;margin-bottom:4px;align-items:center;cursor:pointer;transition:all .12s" onmouseover="this.style.borderColor=\'var(--bdl)\'" onmouseout="this.style.borderColor=\'var(--bd)\'">';
+
+    // Name + avatar
+    h+='<div style="display:flex;align-items:center;gap:8px"><div class="mgr-rep-av" style="width:28px;height:28px;font-size:9px">'+r.i+'</div><div><div style="font-size:12px;font-weight:600">'+r.n+'</div></div></div>';
+
+    // Stats
+    h+='<div style="text-align:right;font-family:var(--m);font-size:13px;font-weight:600;color:var(--bl)">'+r.b+'</div>';
+    h+='<div style="text-align:right;font-family:var(--m);font-size:13px;font-weight:600;color:var(--gn)">'+r.e+'</div>';
+    h+='<div style="text-align:right;font-family:var(--m);font-size:13px;font-weight:600;color:var(--yl)">'+r.mt+'</div>';
+    h+='<div style="text-align:right;font-family:var(--m);font-size:13px;font-weight:600;color:var(--gn)">'+r.pl+'</div>';
+
+    // Speed to contact
+    h+='<div style="text-align:right;font-family:var(--m);font-size:11px;font-weight:600;color:'+spdCol+'">'+r.spdLabel+'</div>';
+
+    // Activity bar
+    h+='<div style="padding-left:12px"><div style="height:4px;background:var(--bd);border-radius:2px;overflow:hidden"><div style="height:100%;width:'+r.p+'%;background:'+perfCol+';border-radius:2px;transition:width .8s ease-out"></div></div></div>';
+
+    h+='</div>';
+  });
+
+  el.innerHTML=h;
+}
+
+
+// BRIEF
+function actionBarHtml(p){
+  // If primary contact has no email but we have a secondary (e.g. Pinnacle transition)
+  var useContact = p;
+  if(!p.ce && p.ce2){
+    useContact = {ce:p.ce2,cn:p.cn2||p.cn,ct:p.ct2||p.ct,cl:p.cl,ph:p.ph2||p.ph};
   }
-  if(window.innerWidth<768){
-    var mo=document.getElementById("mo");
-    document.getElementById("moc").innerHTML=briefHtml(p);
-    mo.style.display="block";
-    setTimeout(function(){mo.classList.add("open")},10);
-  }
-  renderLi();
+  var h='<div class="r-action-btns">';
+  if(p.ce) h+='<a href="'+mh(p)+'" class="ab em">✉ Email '+p.cn.split(" ")[0]+'</a>';
+  if(p.ph) h+='<a href="tel:'+p.ph+'" class="ab ph">📞 Call</a>';
+  var li=useContact.cl||p.cl; if(li) h+='<a href="'+li+'" target="_blank" class="ab li">in LinkedIn</a>';
+  h+='<button class="ab cp" onclick="cpE('+P.indexOf(p)+')">📋 Copy Email</button>';
+  if(!useContact.ce&&!p.ph&&!p.ph2) h+='<button class="ab search" onclick="searchContact('+P.indexOf(p)+')">Searching for contact...</button>';
+  h+='</div>';
+  h+='<div class="r-action-who"><strong>'+p.cn+'</strong> · '+p.ct+(p.al?' · Also: '+p.al:'')+'</div>';
+  return h;
 }
 
 function briefHtml(p){
-  var h='<div style="padding:14px 0"><div style="font-size:16px;font-weight:800">'+p.c.toUpperCase()+'</div>';
-  h+='<div style="font-size:9px;color:var(--txd);margin-top:2px">Briefed: '+p.ts+'</div>';
-  h+='<div style="font-size:13px;font-weight:600;color:var(--gn);margin-top:5px">'+p.m+'/yr</div>';
-  h+='<div style="font-size:11px;color:var(--tx2);margin-top:5px;line-height:1.45">'+p.sn+'</div>';
-  h+='<div style="border-top:1px solid var(--bd);margin-top:10px;padding-top:10px"><div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd);margin-bottom:5px">WHY REACH OUT NOW</div>';
-  p.trig.forEach(function(t){h+='<div style="font-size:11px;font-weight:600;color:var(--tx)">'+t.n+' <span style="padding:1px 4px;border-radius:3px;font-size:8px;font-weight:700;background:var(--gng);color:var(--gn)">T'+t.t+'</span></div><div style="font-size:10px;color:var(--txd);margin-top:2px">'+t.e+'</div>'});
+  var col=sc(p.s),circ=2*Math.PI*19,off=circ-(p.s/100)*circ;
+  var sd=p.sd;
+
+  var h='<div class="b-wrap">';
+
+  // Header
+  h+='<div class="bh"><div class="b-sr '+col+'" onclick="document.getElementById(\'sd\').classList.toggle(\'open\')"><svg viewBox="0 0 48 48"><circle class="trk" cx="24" cy="24" r="19"/><circle class="fl" cx="24" cy="24" r="19" id="bsf" data-off="'+off+'"/></svg><div class="sv">'+p.s+'</div></div>';
+  h+='<div class="b-i"><div class="b-co">'+p.c.toUpperCase()+'</div><div class="b-ts">Briefed: '+p.ts+'</div>';
+  if(p.zone==="defend"&&p.health){h+='<div class="b-meta"><span class="health-badge '+p.health+'">'+p.healthLabel+'</span><span class="cbadge '+(p.ds==="URGENT"?"pv":"mo")+'">'+(p.ds==="URGENT"?"\uD83D\uDEE1 URGENT DEFEND":"\uD83D\uDEE1 DEFEND \u00B7 OPPORTUNITY")+'</span></div>'}
+  else{h+='<div class="b-meta"><span class="cbadge '+vc(p.a)+'"><span class="act-line">'+actTxt(p)+'</span>'+verdTxt(p.a)+'</span></div>';}
+  if(p.zone==="defend"&&p.managed){h+='<div class="b-money">'+p.managed+'<span style="font-size:10px;color:var(--tx2)"> at risk</span></div><div class="b-mb">'+(p.tenure?p.tenure+' relationship · ':'')+'auto-synced from TMS</div>'}
+  else{h+='<div class="b-money">'+p.m+'<span style="font-size:10px;color:var(--tx2)">/yr</span></div><div class="b-mb">'+p.mb+'</div>';}
+  h+='<div class="b-sn">'+p.sn+'</div>';
+  if(p.window){
+    var bwclass=p.window.indexOf("12")>=0?"urgent":p.window.indexOf("48")>=0?"closing":"open";
+    h+='<div style="margin-top:6px"><span class="cw '+bwclass+'"><span class="cw-icon">\u23F1</span> Competitive window: '+p.window+' before other brokers reach out</span></div>';
+  }
+  h+='</div></div>';
+
+  // Score detail — different breakdown for defend vs prospect
+  var isDefendBrief = p.zone==="defend";
+  var bt1=Math.min(sd.t1*5,20),bct=sd.ct?5:0,brc=sd.rc?10:0;
+  h+='<div class="sd'+(firstBrief?' open':'')+'" id="sd">';
+  h+='<div class="sdr"><span class="sdl">Fit: '+sd.f.r+'</span><span class="sdv '+sc(sd.f.p>=15?70:sd.f.p>=10?50:20)+'">+'+sd.f.p+'</span></div>';
+  h+='<div class="sdr"><span class="sdl">Timing: '+sd.t.r+'</span><span class="sdv '+sc(sd.t.p>=15?70:sd.t.p>=10?50:20)+'">+'+sd.t.p+'</span></div>';
+  h+='<div class="sdr"><span class="sdl">Pain: '+sd.pa.r+'</span><span class="sdv '+sc(sd.pa.p>=15?70:sd.pa.p>=10?50:20)+'">+'+sd.pa.p+'</span></div>';
+  h+='<div class="sdr"><span class="sdl">Risk: '+sd.ri.r+'</span><span class="sdv '+sc(sd.ri.p>=15?70:sd.ri.p>=10?50:20)+'">+'+sd.ri.p+'</span></div>';
+  h+='<div class="sdd"></div>';
+  if(bt1>0)h+='<div class="sdr"><span class="sdl">Tier 1 (×'+sd.t1+')</span><span class="sdv gn">+'+bt1+'</span></div>';
+  if(bct)h+='<div class="sdr"><span class="sdl">Verified email</span><span class="sdv gn">+5</span></div>';
+  if(brc)h+='<div class="sdr"><span class="sdl">Active recall</span><span class="sdv gn">+10</span></div>';
+  h+='<div class="sdd"></div><div class="sdr"><span class="sdl" style="font-weight:600;color:var(--tx)">Total</span><span class="sdv" style="color:var(--tx)">'+p.s+'/100</span></div></div>';
+  h+='<div class="sdh" onclick="document.getElementById(\'sd\').classList.toggle(\'open\')">'+(isDefendBrief?'Tap to see defend urgency breakdown':'Tap score to see breakdown')+'</div>';
+
+  // Ops alerts for defend accounts
+  if(p.zone==="defend"&&p.ops_alerts&&p.ops_alerts.length>0){
+    h+='<div class="bs"><div class="bst" style="color:var(--yl)">\u26A0 OPS ALERTS \u00B7 '+p.ops_alerts.length+'</div><div class="bsb">';
+    p.ops_alerts.forEach(function(a){
+      h+='<div class="ops-alert'+(a.sev==="red"?" red":"")+'"><div class="ops-alert-header"><div style="display:flex;align-items:center;gap:6px"><span class="ops-alert-sev '+a.sev+'"></span><span class="ops-alert-who">'+a.who+'</span></div><span class="ops-alert-when">'+a.when+'</span></div><div class="ops-alert-desc">'+a.desc+'</div></div>';
+    });
+    h+='</div></div>';
+  }
+
+  // Relationship section for defend accounts
+  if(p.zone==="defend"){
+    h+='<div class="bs"><div class="bst">\u25BC YOUR RELATIONSHIP</div><div class="bsb"><div class="b-relationship">';
+    h+='<div class="b-rel-item"><div class="b-rel-label">Avg Monthly Revenue</div><div class="b-rel-val">'+(p.managed||"Connect TMS")+'</div></div>';
+    h+='<div class="b-rel-item"><div class="b-rel-label">Relationship</div><div class="b-rel-val">'+(p.tenure||"Connect TMS")+'</div></div>';
+    h+='<div class="b-rel-item"><div class="b-rel-label">On-Time Rate</div><div class="b-rel-val '+(p.health||"")+'">'+((p.healthLabel||"").split("\u00B7")[0].trim()||"Connect TMS")+'</div></div>';
+    h+='<div class="b-rel-item"><div class="b-rel-label">Service Failures (90d)</div><div class="b-rel-val '+(p.health==="green"?"green":"yellow")+'">'+(p.health==="green"?"0":"2")+'</div></div>';
+    h+='</div><div style="font-size:9px;color:var(--txd);margin-top:6px;display:flex;align-items:center;gap:4px">\u2713 Data from TMS · Auto-synced nightly</div></div></div>';
+  }
+
+  // Email preview with edit/send capability
+  h+='<div class="bs"><div class="bst">▼ EMAIL PREVIEW</div><div class="bsb">';
+  h+='<div class="bec" id="emailCard"><div class="bes"><span>Subj: </span>'+p.es+'</div><div class="beb" id="emailBody">'+p.eb+'</div></div>';
+  h+='<div id="emailActions" style="display:flex;gap:6px;margin-top:6px">';
+  h+='<button class="ab cp" onclick="editEmail('+P.indexOf(p)+')">✏️ Edit & Send</button>';
+  h+='<button class="ab cp" onclick="cpE('+P.indexOf(p)+')">📋 Copy</button>';
   h+='</div>';
-  h+='<div style="border-top:1px solid var(--bd);margin-top:10px;padding-top:10px"><div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd);margin-bottom:5px">YOUR ANGLE</div><div style="font-size:11px;color:var(--tx2);line-height:1.5">'+p.ang+'</div></div>';
-  h+='<div style="border-top:1px solid var(--bd);margin-top:10px;padding-top:10px"><div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd);margin-bottom:5px">EMAIL PREVIEW</div><div style="background:var(--s2);border:1px solid var(--bd);border-radius:10px;overflow:hidden"><div style="padding:8px 12px;background:var(--s3);border-bottom:1px solid var(--bd);font-size:11px;font-weight:600"><span style="color:var(--txd);font-weight:400">Subj: </span>'+p.es+'</div><div style="padding:10px 12px;font-size:11px;line-height:1.5;color:var(--tx2);white-space:pre-wrap">'+p.eb+'</div></div></div>';
-  h+='<div style="border-top:1px solid var(--bd);margin-top:10px;padding-top:10px"><div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txd);margin-bottom:5px">WATCH OUTS</div>';
-  p.wo.forEach(function(w,j){h+='<div style="font-size:10px;color:var(--tx2);display:flex;gap:6px;line-height:1.4;padding:3px 0"><span style="color:var(--yl);font-weight:600;width:14px;flex-shrink:0">'+(j+1)+'</span><span>'+w+'</span></div>'});
-  h+='</div>';
-  h+='<div style="margin-top:10px;padding:12px;background:var(--s2);border:1px solid var(--bd);border-radius:10px"><div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bl)">NEXT STEP</div><div style="margin-top:2px;font-size:12px;font-weight:600;line-height:1.3">'+p.ns+'</div></div>';
+  h+='<div id="emailEdit" style="display:none"></div>';
+  h+='</div></div>';
+
+  // Triggers
+  h+='<div class="bs"><div class="bst">▼ WHY REACH OUT NOW</div><div class="bsb">';
+  p.trig.forEach(function(tr){h+='<div class="bt"><div class="btn-t">'+tr.n+' <span class="btt t'+tr.t+'">T'+tr.t+'</span>'+(tr.d?'<span class="btd">'+tr.d+'</span>':'')+'</div><div class="bte">'+tr.e+'</div></div>'});
+  h+='</div></div>';
+
+  // Angle
+  h+='<div class="bs"><div class="bst">▼ YOUR ANGLE</div><div class="bsb">'+p.ang+'</div></div>';
+
+  // Watch outs
+  h+='<div class="bs"><div class="bst">▼ WATCH OUTS</div><div class="bsb">';
+  p.wo.forEach(function(w,j){h+='<div class="bw"><span class="bwn">'+(j+1)+'</span><span>'+w+'</span></div>'});
+  h+='</div></div>';
+
+  // Next step
+  h+='<div class="bns"><div class="bnsl">NEXT STEP</div><div class="bnst">'+p.ns+'</div></div>';
   h+='</div>';
   return h;
 }
 
-function cpE(i){var p=P[i];navigator.clipboard.writeText("Subject: "+p.es+"\n\n"+p.eb).then(function(){showToast("Email copied")})}
-function sf(f){filter=f;renderFi();renderLi()}
-function setV(v){document.getElementById("avm").classList.remove("open")}
-function toggleAv(){document.getElementById("avm").classList.toggle("open")}
+function pick(i){
+  sel=i;var p=P[i];var wasFirst=firstBrief;firstBrief=false;
+
+  // If in manager view, switch to rep view first
+  if(view==="mgr"){view="rep";render()}
+
+  // DESKTOP: right panel
+  if(window.innerWidth>=768){
+    var ra=document.getElementById("ra"),rc=document.getElementById("rc"),re=document.getElementById("re");
+    ra.innerHTML=actionBarHtml(p);ra.style.display="block";
+    rc.innerHTML=briefHtml(p);rc.style.display="block";rc.scrollTop=0;
+    re.style.display="none";
+    setTimeout(function(){var f=document.getElementById("bsf");if(f)f.style.strokeDashoffset=f.getAttribute("data-off")},100);
+  }
+
+  // MOBILE: overlay — ONLY on small screens
+  if(window.innerWidth<768){
+    var mo=document.getElementById("mo");
+    document.getElementById("moc").innerHTML='<div style="position:sticky;top:44px;z-index:5;background:var(--bg);border-bottom:1px solid var(--bd);padding:10px 0">'+actionBarHtml(p)+'</div>'+briefHtml(p);
+    mo.style.display="block";
+    setTimeout(function(){mo.classList.add("open")},10);
+    setTimeout(function(){var f=mo.querySelector("#bsf");if(f)f.style.strokeDashoffset=f.getAttribute("data-off")},200);
+  }
+
+  renderLi();
+}
+
 function closeMob(){var mo=document.getElementById("mo");mo.classList.remove("open");setTimeout(function(){mo.style.display="none"},300)}
-function send(){var v=document.getElementById("ci").value.trim();if(!v)return;document.getElementById("ci").value="";showToast("Researching "+v+"...")}
-function showToast(msg){var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2500)}
-var isDark=true;function toggleTheme(){isDark=!isDark;document.getElementById("shell").classList.toggle("light",!isDark)}
-document.getElementById("ci").addEventListener("keydown",function(e){if(e.key==="Enter")send()});
+
+function cpE(i){
+  var p=P[i];
+  navigator.clipboard.writeText("Subject: "+p.es+"\n\n"+p.eb).then(function(){
+    var btns=document.querySelectorAll(".ab.cp");
+    btns.forEach(function(b){showToast("\u2713 Email copied to clipboard");if(b.textContent.indexOf("Copy")>=0){b.textContent="\u2713 Copied";b.style.borderColor="var(--gn)";b.style.color="var(--gn)";
+      setTimeout(function(){b.textContent="\uD83D\uDCCB Copy";b.style.borderColor="";b.style.color=""},2000)}});
+  });
+}
+function editEmail(i){
+  var p=P[i],ed=document.getElementById("emailEdit"),ac=document.getElementById("emailActions"),ec=document.getElementById("emailCard");
+  if(!ed)return;ac.style.display="none";ec.style.display="none";ed.style.display="block";
+  ed.innerHTML='<div style="font-size:10px;color:var(--txd);margin-bottom:3px">SUBJECT</div><input id="editSubj" style="width:100%;padding:7px 10px;background:var(--s1);border:1px solid var(--bl);border-radius:6px;color:var(--tx);font-family:var(--f);font-size:11px;outline:none;margin-bottom:6px" value="'+p.es.replace(/"/g,"&quot;")+'">'
+  +'<div style="font-size:10px;color:var(--txd);margin-bottom:3px">BODY</div><textarea class="b-email-edit" id="editBody">'+p.eb+'</textarea>'
+  +'<div class="b-send-row"><button class="b-send-btn" onclick="sendEmail('+i+')">Send Email</button><button class="b-send-cancel" onclick="cancelEdit()">Cancel</button>'
+  +(p.ce?'<span style="font-size:10px;color:var(--txd);margin-left:auto">To: '+p.ce+'</span>':'')+'</div>';
+}
+function cancelEdit(){
+  var ed=document.getElementById("emailEdit"),ac=document.getElementById("emailActions"),ec=document.getElementById("emailCard");
+  if(ed)ed.style.display="none";if(ac)ac.style.display="flex";if(ec)ec.style.display="block";
+}
+function sendEmail(i){
+  var p=P[i],ed=document.getElementById("emailEdit");
+  p.act="sent";p.ad="Just now";
+  showToast("✓ Email sent to "+p.cn+" at "+p.c);
+  ed.innerHTML='<div class="b-sent-confirm">\u2713 Email sent to '+p.cn+' at '+p.c+'<br><span style="font-size:10px;opacity:.7">Status updated \u2022 Pipeline refreshed</span></div>';
+  setTimeout(function(){renderSt();renderLi()},500);
+  setTimeout(function(){
+    var ac=document.getElementById("emailActions"),ec=document.getElementById("emailCard");
+    ed.style.display="none";if(ac)ac.style.display="flex";if(ec)ec.style.display="block";
+    var m=document.querySelector(".b-meta");if(m)m.innerHTML='<span class="cbadge '+vc(p.a)+'"><span class="act-line">SENT Just now</span>'+verdTxt(p.a)+'</span>';
+  },3000);
+}
+
+function sf(f){filter=f;render()}
+function setV(v){view=v;sel=-1;document.getElementById("avm").classList.remove("open");
+  // Reset right panel to empty state
+  if(window.innerWidth>=768){
+    document.getElementById("ra").style.display="none";
+    document.getElementById("rc").style.display="none";
+    document.getElementById("re").style.display="flex";
+  }
+  render()}
+function toggleAv(){document.getElementById("avm").classList.toggle("open")}
 document.addEventListener("click",function(e){if(!e.target.closest(".av"))document.getElementById("avm").classList.remove("open")});
+
+function showC(){var el=document.getElementById("ch");el.innerHTML=starters.map(function(s){return'<button class="cc" onmousedown="pickC(this.textContent)">'+s+'</button>'}).join("");el.classList.add("show")}
+function hideC(){document.getElementById("ch").classList.remove("show")}
+function pickC(t){document.getElementById("ci").value=t;hideC()}
+function send(){
+  var v=document.getElementById("ci").value.trim();if(!v)return;
+  document.getElementById("ci").value="";
+  // Check if input matches a known prospect
+  var query=v.toLowerCase().replace(/brief me on |find |search /g,"").trim();
+  var match=-1;
+  P.forEach(function(p,i){if(p.c.toLowerCase().indexOf(query)>=0)match=i});
+  if(match>=0){pick(match);return}
+  // "Who should I call first" → pick top prospect
+  if(query.indexOf("call first")>=0||query.indexOf("should i call")>=0){pick(0);return}
+  // Unknown company — show loading animation then message
+  var st=document.getElementById("st");
+  var origStatus=st.innerHTML;
+  var steps=["Scanning 18 sources...","Checking FMCSA records...","Finding contacts via Apollo...","Building brief..."];
+  var step=0;
+  st.innerHTML='<span style="color:var(--bl)">⟳ Researching '+v+'... '+steps[0]+'</span>';
+  var loadInterval=setInterval(function(){
+    step++;
+    if(step<steps.length){st.innerHTML='<span style="color:var(--bl)">⟳ Researching '+v+'... '+steps[step]+'</span>'}
+    else{clearInterval(loadInterval);st.innerHTML='<span style="color:var(--gn)">✓ Brief ready for '+v+' — <em>this is a demo preview, connect to live backend for full results</em></span>';setTimeout(function(){st.innerHTML=origStatus},5000)}
+  },1200);
+}
+document.getElementById("ci").addEventListener("keydown",function(e){if(e.key==="Enter")send()});
+
+
+function showToast(msg){var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2500)}
+// Keyboard shortcuts
+document.addEventListener("keydown",function(e){
+  if(document.activeElement.tagName==="INPUT"||document.activeElement.tagName==="TEXTAREA")return;
+  if(view!=="rep")return;
+  var visible=P.filter(function(p,i){return mf(p)});
+  if(e.key==="ArrowDown"){e.preventDefault();var ci=visible.indexOf(P[sel]);ci=Math.min(ci+1,visible.length-1);if(ci>=0)pick(P.indexOf(visible[ci]))}
+  if(e.key==="ArrowUp"){e.preventDefault();var ci=visible.indexOf(P[sel]);ci=Math.max(ci-1,0);if(ci>=0)pick(P.indexOf(visible[ci]))}
+  if(e.key==="e"||e.key==="E"){if(sel>=0){var p=P[sel];if(p.ce){editEmail(sel)}}}
+  if(e.key==="/"||e.key==="k"&&e.metaKey){e.preventDefault();document.getElementById("ci").focus()}
+});
+function searchContact(i){
+  var p=P[i];
+  var btn=event.target;
+  btn.textContent="Scanning Apollo...";
+  btn.style.pointerEvents="none";
+  setTimeout(function(){btn.textContent="Checking LinkedIn..."},1200);
+  setTimeout(function(){btn.textContent="Verifying email..."},2400);
+  setTimeout(function(){
+    btn.textContent="\u2709 Contact found";
+    btn.style.background="var(--gnd)";btn.style.color="var(--gn)";btn.style.borderColor="rgba(52,211,153,.2)";
+    showToast("\u2713 Contact found for "+p.cn+" at "+p.c);
+    // In production this would actually update the prospect data
+    setTimeout(function(){btn.textContent="\u2709 Email "+p.cn.split(" ")[0];btn.style.pointerEvents="auto"},1500);
+  },3600);
+}
+
+
+var isDark=true;
+function toggleTheme(){
+  isDark=!isDark;
+  document.getElementById("shell").classList.toggle("light",!isDark);
+}
+
 init();
 </script>
 </body>
