@@ -488,7 +488,7 @@ function mf(p){if(filter==="all")return 1;if(filter==="pn")return p.a==="PURSUE 
 function mh(p){return"mailto:"+(p.ce||"")+"?subject="+encodeURIComponent(p.es||"")+"&body="+encodeURIComponent(p.eb||"")}
 
 function init(){
-  if(ROLE==="manager"){document.getElementById("vtog").classList.remove("hidden");view="mgr";}
+  if(ROLE==="manager"){document.getElementById("vtog").classList.remove("hidden");view="rep";}
   var newC=P.filter(function(p){return p.zone==="new"}).length;
   document.getElementById("reTitle").textContent=newC+" new prospects overnight";
   render();
@@ -872,6 +872,13 @@ function toggleTheme(){
 }
 
 init();
+(function(){
+  var h = window.location.hash.replace("#","");
+  if(h==="manager" || h==="mgr"){setV("mgr");}
+  else if(h==="prospects" || h==="rep"){setV("rep");}
+  else if(h==="defend"){setV("rep");setTimeout(function(){var rows=document.querySelectorAll(".row");for(var i=0;i<rows.length;i++){if(rows[i].querySelector(".ri-n") && rows[i].querySelector(".ri-n").textContent.indexOf("Continental")>-1){rows[i].click();break;}}},300);}
+  else if(h==="pipeline"){setV("rep");setTimeout(function(){var fc=document.querySelectorAll(".fc");for(var i=0;i<fc.length;i++){if(fc[i].textContent.indexOf("Follow")>-1){fc[i].click();break;}}},300);}
+})();
 </script>
 </body>
 </html>
