@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SalesScout — Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08090A;--tx:#F2F2F2;--tx2:#7A7D85;--bl:#4A90D9;--gn:#34D399;--rd:#F87171;--yl:#FBBF24;--f:'Instrument Sans',system-ui,sans-serif;--m:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--tx);font-family:var(--f);-webkit-font-smoothing:antialiased}
+.deck{width:100vw;height:100vh;position:relative;overflow:hidden}
+.slide{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;pointer-events:none;padding:40px}
+.slide.active{opacity:1;transform:translateY(0);pointer-events:auto}
+.nav{position:fixed;bottom:20px;right:20px;display:flex;gap:6px;z-index:100}
+.nav-btn{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);color:var(--tx2);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:var(--f)}
+.nav-btn:hover{background:rgba(255,255,255,.1);color:var(--tx)}
+.slide-counter{position:fixed;bottom:24px;left:20px;font-size:10px;font-family:var(--m);color:var(--tx2);z-index:100}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--bl);transition:width .4s ease;z-index:100}
+.s-title{text-align:center}
+.s-title .logo{font-size:52px;font-weight:700;letter-spacing:-.04em;margin-bottom:8px}
+.s-title .logo span{color:var(--bl)}
+.s-title .tagline{font-size:20px;color:var(--tx2);font-weight:400;max-width:560px;line-height:1.5;margin-bottom:28px}
+.s-title .powered{font-size:11px;color:var(--tx2);font-family:var(--m);opacity:.4}
+.s-problem{max-width:760px;text-align:left;padding:50px}
+.s-problem .label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rd);margin-bottom:14px}
+.s-problem h2{font-size:36px;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:20px}
+.s-problem p{font-size:17px;color:var(--tx2);line-height:1.7;margin-bottom:14px}
+.s-problem .punch{color:var(--tx);font-weight:600}
+.s-product{width:100%;height:100%;padding:0;display:flex;flex-direction:column}
+.s-product .s-head{padding:14px 32px 8px;flex-shrink:0;display:flex;align-items:center;gap:14px}
+.s-product .s-label{font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:3px 9px;border-radius:4px;border:1px solid}
+.s-product h2{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.s-product .s-sub{font-size:12px;color:var(--tx2);margin-left:auto;max-width:380px;text-align:right;line-height:1.4}
+.s-product .s-frame{flex:1;padding:0 16px 16px;min-height:0}
+.s-product .s-frame iframe{width:100%;height:100%;border:1px solid rgba(255,255,255,.06);border-radius:10px;background:var(--bg);box-shadow:0 16px 50px rgba(0,0,0,.5)}
+.s-numbers{text-align:center}
+.s-numbers .label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gn);margin-bottom:20px}
+.s-numbers .price{font-size:58px;font-weight:700;font-family:var(--m);letter-spacing:-.03em;margin-bottom:4px}
+.s-numbers .price span{color:var(--tx2);font-size:26px;font-weight:400}
+.s-numbers .per{font-size:15px;color:var(--tx2);margin-bottom:28px}
+.s-numbers .guarantee{font-size:17px;color:var(--tx);max-width:480px;line-height:1.6;margin:0 auto 10px}
+.s-numbers .guarantee-sub{font-size:13px;color:var(--tx2);max-width:480px;line-height:1.5}
+.s-cta{text-align:center}
+.s-cta h2{font-size:38px;font-weight:700;letter-spacing:-.03em;margin-bottom:10px}
+.s-cta .sub{font-size:15px;color:var(--tx2);margin-bottom:28px}
+.s-cta .btn{display:inline-block;padding:13px 28px;background:var(--bl);color:#fff;font-size:14px;font-weight:600;border-radius:9px;text-decoration:none;font-family:var(--f);margin-bottom:14px;transition:background .15s}
+.s-cta .btn:hover{background:#3A7BC8}
+.s-cta .links{display:flex;flex-direction:column;gap:6px;align-items:center}
+.s-cta .link{font-family:var(--m);font-size:13px;color:var(--bl);text-decoration:none;transition:color .15s}
+.s-cta .link:hover{color:var(--tx)}
+.slide.active .f1{animation:fu .5s ease .1s both}
+.slide.active .f2{animation:fu .5s ease .2s both}
+.slide.active .f3{animation:fu .5s ease .3s both}
+.slide.active .f4{animation:fu .5s ease .45s both}
+.slide.active .f5{animation:fu .5s ease .6s both}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.deck::after{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+.slide{z-index:1}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+<div class="progress" id="progress"></div>
+<div class="slide active" data-i="0"><div class="s-title"><div class="logo f1">Sales<span>Scout</span></div><div class="tagline f2">Your reps spend more time in Salesforce than on the phone. We fix that.</div><div class="powered f3">Powered by FreightScout.ai</div></div></div>
+<div class="slide" data-i="1"><div class="s-problem"><div class="label f1">The Problem</div><h2 class="f2">Your best rep does 3 hours of research to find one good prospect.</h2><p class="f3">Your worst rep does zero research and cold calls a list from 2019.</p><p class="f4">Meanwhile, a shipper 40 miles from your office just broke ground on a new DC, and <span class="punch">three other brokers already called them.</span></p><p class="f5" style="color:var(--tx);font-weight:600;font-size:19px;margin-top:6px">You don't have a sales problem. You have an intelligence problem.</p></div></div>
+<div class="slide" data-i="2"><div class="s-product"><div class="s-head"><span class="s-label f1" style="border-color:rgba(74,144,217,.25);color:var(--bl)">7:00 AM</span><h2 class="f2">What Your Rep Sees Before the First Call</h2><div class="s-sub f3">18 data sources scanned overnight. Ranked prospects. Pre-written emails. Verified contacts.</div></div><div class="s-frame f4"><iframe src="https://salesscout-app-demo.vercel.app/" frameborder="0" allow="clipboard-write"></iframe></div></div></div>
+<div class="slide" data-i="3"><div class="s-product"><div class="s-head"><span class="s-label f1" style="border-color:rgba(251,191,36,.25);color:var(--yl)">DEFEND</span><h2 class="f2">Protect the Business You Already Won</h2><div class="s-sub f3">TMS-connected. Ops alerts. Account health. Your rep knows before the customer calls.</div></div><div class="s-frame f4"><iframe src="https://salesscout-app-demo.vercel.app/" frameborder="0" allow="clipboard-write"></iframe></div></div></div>
+<div class="slide" data-i="4"><div class="s-product"><div class="s-head"><span class="s-label f1" style="border-color:rgba(52,211,153,.25);color:var(--gn)">ZERO DATA ENTRY</span><h2 class="f2">The Pipeline Builds Itself</h2><div class="s-sub f3">Emails tracked. Replies detected. Meetings logged. Two taps across the entire sales cycle.</div></div><div class="s-frame f4"><iframe src="https://salesscout-app-demo.vercel.app/" frameborder="0" allow="clipboard-write"></iframe></div></div></div>
+<div class="slide" data-i="5"><div class="s-product"><div class="s-head"><span class="s-label f1" style="border-color:rgba(248,113,113,.25);color:var(--rd)">$6.4M UNTOUCHED</span><h2 class="f2">What You See as the Manager</h2><div class="s-sub f3">Money left on the table. Speed to contact per rep. AI to revenue funnel.</div></div><div class="s-frame f4"><iframe src="https://salesscout-app-demo.vercel.app/" frameborder="0" allow="clipboard-write"></iframe></div></div></div>
+<div class="slide" data-i="6"><div class="s-numbers"><div class="label f1">Pricing</div><div class="price f2">$1,000<span> - $2,500</span></div><div class="per f2">per month, depending on team size</div><div class="guarantee f3">30-day pilot. We set everything up.<br>Your reps start selling on day one.</div><div class="guarantee-sub f4">If it doesn't measurably improve performance in 30 days, you pay nothing.</div></div></div>
+<div class="slide" data-i="7"><div class="s-cta"><h2 class="f1">Start the Pilot</h2><div class="sub f2">Your competitors are still researching prospects manually.</div><a href="mailto:hello@freightscout.ai" class="btn f3">hello@freightscout.ai</a><div class="links f4"><a href="https://freightscout.ai" target="_blank" class="link">freightscout.ai</a><a href="https://salesscout-demo-simple.vercel.app/" target="_blank" class="link">Live Product Demo &rarr;</a></div></div></div>
+</div>
+<div class="slide-counter"><span id="cur">1</span> / <span id="tot">8</span></div>
+<div class="nav"><button class="nav-btn" onclick="go(-1)">&larr;</button><button class="nav-btn" onclick="go(1)">&rarr;</button></div>
+<script>
+var slides=document.querySelectorAll(".slide"),cur=0,total=slides.length;
+document.getElementById("tot").textContent=total;
+function show(i){if(i<0||i>=total)return;slides[cur].classList.remove("active");cur=i;slides[cur].classList.add("active");document.getElementById("cur").textContent=cur+1;document.getElementById("progress").style.width=((cur+1)/total*100)+"%"}
+function go(d){show(cur+d)}
+document.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowDown"||e.key===" "){e.preventDefault();go(1)}if(e.key==="ArrowLeft"||e.key==="ArrowUp"){e.preventDefault();go(-1)}});
+var tx=0;document.addEventListener("touchstart",function(e){tx=e.touches[0].clientX});document.addEventListener("touchend",function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx>0?go(-1):go(1)}});
+show(0);
+</script>
+</body>
+</html>
